@@ -1,66 +1,53 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
-import android.view.View;
-import android.view.Menu;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.text.InputType;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.databinding.ActivityMainBinding;
-
 public class MainActivity extends AppCompatActivity {
-
-    private AppBarConfiguration mAppBarConfiguration;
-    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        // 1. Najpierw ładujemy layout!
+        setContentView(R.layout.activity_main);
 
-        setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null)
-                        .setAnchorView(R.id.fab).show();
+        // 2. Dopiero potem pobieramy widoki
+        EditText etHaslo = findViewById(R.id.etHaslo);
+        CheckBox cbShow = findViewById(R.id.cbShow);
+        Button btn = findViewById(R.id.loginButton);
+
+        cbShow.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                etHaslo.setInputType(InputType.TYPE_CLASS_TEXT
+                        | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            } else {
+                etHaslo.setInputType(InputType.TYPE_CLASS_TEXT
+                        | InputType.TYPE_TEXT_VARIATION_PASSWORD);
             }
+            etHaslo.setSelection(etHaslo.getText().length());
         });
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-                .setOpenableLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+        btn.setOnClickListener(v -> {
+            String login = ((EditText) findViewById(R.id.etLogin)).getText().toString().trim();
+            String haslo = etHaslo.getText().toString();
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
+            if (login.isEmpty()) {
+                ((EditText) findViewById(R.id.etLogin)).setError("Podaj login");
+                return;
+            }
+            if (haslo.isEmpty()) {
+                etHaslo.setError("Podaj hasło");
+                return;
+            }
+
+            // TODO: przejście dalej
+            // startActivity(new Intent(this, NextActivity.class));
+        });
     }
 }
