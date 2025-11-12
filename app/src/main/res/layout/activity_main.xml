@@ -55,7 +55,7 @@
         <EditText
             android:id="@+id/etLogin"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="53dp"
             android:hint="Login"
             android:textColor="#14233B"
             android:textColorHint="#334566"
