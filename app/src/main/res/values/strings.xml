@@ -13,4 +13,5 @@
     <string name="lungs">Obraz płuc</string>
     <string name="user_icon">Ikona użytkownika</string>
     <string name="login_button">Przycisk logowania</string>
+    <string name="login">Login</string>
 </resources>

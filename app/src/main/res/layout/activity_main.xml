@@ -17,7 +17,8 @@
         android:layout_marginTop="40dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@android:color/white"/>
 
     <FrameLayout
         android:id="@+id/heroStack"
@@ -64,7 +65,8 @@
             android:background="@drawable/field_bg"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:autofillHints="username"/>
 
         <View android:layout_width="match_parent" android:layout_height="10dp"/>
 
@@ -81,7 +83,8 @@
             android:background="@drawable/field_bg"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:autofillHints="password"/>
 
         <!-- POKAŻ HASŁO wewnątrz kontenera -->
         <CheckBox
@@ -100,7 +103,7 @@
             android:id="@+id/loginButton"
             android:layout_width="230dp"
             android:layout_height="60dp"
-            android:text="LOGIN"
+            android:text="@string/login"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:background="@drawable/button_bg"
