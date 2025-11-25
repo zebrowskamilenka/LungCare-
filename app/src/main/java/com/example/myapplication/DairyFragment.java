@@ -1,13 +1,10 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,8 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -41,42 +37,30 @@ public class DairyFragment extends Fragment {
 
         prefs = requireContext().getSharedPreferences("dairy", Context.MODE_PRIVATE);
 
-        loadEntries();
 
-        RecyclerView recycler = root.findViewById(R.id.recyclerJournal);
+
+        RecyclerView recycler = root.findViewById(R.id.recyclerDiary);
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new DairyAdapter(entries);
         recycler.setAdapter(adapter);
 
-        EditText et = root.findViewById(R.id.etDairyEntry);
-        FloatingActionButton fab = root.findViewById(R.id.fabAddEntry);
+        EditText et = root.findViewById(R.id.etDiaryInput);
 
-        fab.setOnClickListener(v -> {
-            String text = et.getText().toString().trim();
-            if (text.isEmpty()) return;
+
+
 
             String date = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault())
                     .format(new Date());
 
-            entries.add(0, new DairyEntry(date, text));
-            adapter.notifyItemInserted(0);
 
-            saveEntries();
+
+
             et.setText("");
-        });
+        ;
 
         return root;
     }
 
-    private void saveEntries() {
-        Gson gson = new Gson();
-        prefs.edit().putString("entries", gson.toJson(entries)).apply();
+
     }
 
-    private void loadEntries() {
-        Gson gson = new Gson();
-        String json = prefs.getString("entries", "[]");
-        entries = gson.fromJson(json, new TypeToken<ArrayList<JournalEntry>>(){}.getType());
-        if (entries == null) entries = new ArrayList<>();
-    }
-}

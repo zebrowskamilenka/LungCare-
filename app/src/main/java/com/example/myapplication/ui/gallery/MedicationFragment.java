@@ -18,46 +18,40 @@ import java.util.ArrayList;
 
 public class MedicationFragment extends Fragment {
 
+
+
+
         private RecyclerView recyclerView;
-        private FloatingActionButton fabAdd;
         private MedicationAdapter adapter;
         private ArrayList<Medication> medications;
-
-        public MedicationFragment() {
-            // wymagany pusty konstruktor
-        }
+        private FloatingActionButton fabAdd;
 
         @Override
-        public View onCreateView(@NonNull LayoutInflater inflater,
-                                 ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.fragment_medications_list, container, false);
 
-            View root = inflater.inflate(R.layout.fragment_medications_list, container, false);
-
-            recyclerView = root.findViewById(R.id.recyclerMedications);
-            fabAdd = root.findViewById(R.id.fabAddMedication);
+            recyclerView = view.findViewById(R.id.recyclerMedications);
+            fabAdd = view.findViewById(R.id.fabAddMedication);
 
             medications = new ArrayList<>();
-            medications.add(new Medication("Tacrolimus", "1 mg", "08:00"));
-            medications.add(new Medication("Mykofenolan mofetylu", "500 mg", "08:00 / 20:00"));
-            medications.add(new Medication("Prednizon", "10 mg", "09:00"));
+            medications.add(new Medication("Tacrolimus", "5 mg", "08:00"));
+            medications.add(new Medication("Mykofenolan mofetylu", "500 mg", "20:00"));
+            medications.add(new Medication("Prednizon", "10 mg", "08:00"));
 
             adapter = new MedicationAdapter(medications);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             recyclerView.setAdapter(adapter);
 
             fabAdd.setOnClickListener(v -> {
-                medications.add(new Medication(
-                        "Nowy lek " + (medications.size() + 1),
-                        "0 mg",
-                        "00:00"
-                ));
+                medications.add(new Medication("Nowy lek", "0 mg", "00:00"));
                 adapter.notifyItemInserted(medications.size() - 1);
             });
 
-            return root;
+            return view;
         }
     }
+
+
 
 
 

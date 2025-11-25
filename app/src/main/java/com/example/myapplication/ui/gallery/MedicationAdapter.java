@@ -1,4 +1,5 @@
 package com.example.myapplication.ui.gallery;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
+
 public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.MedicationViewHolder> {
 
-    private ArrayList<Medication> medications;
+    private ArrayList<Medication> list;
 
-    public MedicationAdapter(ArrayList<Medication> medications) {
-        this.medications = medications;
+    public MedicationAdapter(ArrayList<Medication> list) {
+        this.list = list;
     }
 
     @NonNull
@@ -28,21 +30,28 @@ public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.Me
 
     @Override
     public void onBindViewHolder(@NonNull MedicationViewHolder holder, int position) {
-        holder.tvName.setText(medications.get(position).getName());
+        Medication med = list.get(position);
+
+        holder.tvName.setText(med.getName());
+        holder.tvDose.setText(med.getDose());
+        holder.tvTime.setText(med.getTime());
     }
 
     @Override
     public int getItemCount() {
-        return medications.size();
+        return list.size();
     }
 
     static class MedicationViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvName;
+        TextView tvName, tvDose, tvTime;
 
         public MedicationViewHolder(@NonNull View itemView) {
             super(itemView);
+
             tvName = itemView.findViewById(R.id.tvMedicationName);
+            tvDose = itemView.findViewById(R.id.tvMedicationDose);
+            tvTime = itemView.findViewById(R.id.tvMedicationTime);
         }
     }
 }
