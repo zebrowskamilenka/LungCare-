@@ -5,4 +5,35 @@
         android:title="@string/action_settings"
         android:orderInCategory="100"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/nav_dashboard"
+        android:title="Strona główna"
+         />
+
+    <item
+        android:id="@+id/nav_calendar"
+        android:title="Kalendarz"
+        />
+
+    <item
+        android:id="@+id/nav_diary"
+        android:title="Dzienniczek"
+        />
+
+    <item
+        android:id="@+id/nav_map"
+        android:title="Mapa UCK"
+         />
+
+    <item
+        android:id="@+id/nav_vademecum"
+        android:title="Vademecum"
+        />
+
+    <item
+        android:id="@+id/nav_contact"
+        android:title="Kontakt"
+        />
+
+
 </menu>

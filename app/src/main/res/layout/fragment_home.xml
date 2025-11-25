@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/lungs"
     tools:context=".ui.home.HomeFragment" >
-
     <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"

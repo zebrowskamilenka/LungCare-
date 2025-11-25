@@ -20,6 +20,17 @@
             android:id="@+id/nav_calendar"
             android:title="Kalendarz"
             android:icon="@drawable/ic_menu_camera" />
+        <item
+            android:id="@+id/nav_medications"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Leki" />
+        <item
+            android:id="@+id/nav_education"
+            android:title="Edukacja" />
+        <item
+            android:id="@+id/nav_map"
+            android:title="Mapa UCK"
+             />
 
     </group>
 </menu>

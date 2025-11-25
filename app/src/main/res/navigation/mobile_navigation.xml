@@ -23,10 +23,45 @@
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 
-<fragment
-android:id="@+id/nav_calendar"
-android:name="com.example.myapplication.ui.calendar.CalendarFragment"
-android:label="Calendar"
-tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/nav_calendar"
+        android:name="com.example.myapplication.ui.calendar.CalendarFragment"
+        android:label="Kalendarz"
+        tools:layout="@layout/fragment_calendar" />
+
+    <fragment
+        android:id="@+id/nav_medications"
+        android:name="com.example.myapplication.ui.gallery.MedicationFragment"
+        android:label="Leki"
+        tools:layout="@layout/fragment_medications_list" />
+
+    <fragment
+        android:id="@+id/nav_education"
+        android:name="com.example.myapplication.ui.EducationFragment"
+        android:label="Edukacja"
+        tools:layout="@layout/fragment_education" />
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="map.UckMapFragment"
+        android:label="Mapa UCK"
+        tools:layout="@layout/fragment_uck_map" />
+    <fragment
+        android:id="@+id/nav_diary"
+        android:name="com.example.myapplication.ui.diary.DiaryFragment"
+        android:label="Dzienniczek"
+        tools:layout="@layout/fragment_diary" />
+    <fragment
+        android:id="@+id/nav_vademecum"
+        android:name="com.example.myapplication.VademecumFragment"
+        android:label="Vademecum"
+        tools:layout="@layout/fragment_vademecum" />
+
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.example.myapplication.ui.contact.ContactFragment"
+        android:label="Kontakt"
+        tools:layout="@layout/fragment_contact" />
+
 </navigation>
+
 
