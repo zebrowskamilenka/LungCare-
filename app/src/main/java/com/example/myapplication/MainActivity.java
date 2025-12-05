@@ -5,6 +5,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.text.InputType;
+import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 etHaslo.setError("Podaj hasło");
                 return;
             }
-
+            startActivity(new Intent(MainActivity.this, PanelActivity.class));
             // TODO: przejście dalej
             // startActivity(new Intent(this, NextActivity.class));
         });
