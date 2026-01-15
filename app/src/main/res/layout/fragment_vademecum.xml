@@ -17,7 +17,7 @@
         android:contentDescription="@string/lungs"
         android:scaleType="fitCenter"
         android:src="@drawable/lungs"
-        android:alpha="0.7"
+        android:alpha="0.15"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,10 +47,10 @@
                 android:gravity="center"
                 android:padding="20dp"
                 android:text="VADEMECUM PACJENTA"
-                android:textColor="@android:color/white"
+                android:textColor="#FFFFFF"
                 android:textSize="28sp"
                 android:textStyle="bold"
-                android:background="@drawable/card_bg"
+                android:background="#CC0E1A33"
                 android:elevation="8dp" />
 
             <!-- Sekcja 1 -->
@@ -60,7 +60,7 @@
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp"
-                app:cardBackgroundColor="#8014233B">
+                app:cardBackgroundColor="#E6111D33">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -72,8 +72,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="💊 Leki immunosupresyjne"
-                        android:textColor="@android:color/white"
-                        android:textSize="20sp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -82,8 +82,8 @@
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="6dp"
                         android:text="• Przyjmuj leki zawsze o tych samych godzinach\n• Nie pomijaj dawek\n• Nigdy nie podwajaj dawki bez konsultacji z lekarzem\n• Przechowuj leki zgodnie z zaleceniami"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -94,7 +94,7 @@
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp"
-                app:cardBackgroundColor="#8014233B">
+                app:cardBackgroundColor="#E6111D33">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -106,8 +106,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="🚨 Objawy alarmowe"
-                        android:textColor="@android:color/white"
-                        android:textSize="20sp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -116,8 +116,8 @@
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="6dp"
                         android:text="• Gorączka powyżej 38°C\n• Duszność\n• Silny kaszel\n• Ból w klatce piersiowej\n• Nagłe pogorszenie samopoczucia"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -128,7 +128,7 @@
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp"
-                app:cardBackgroundColor="#8014233B">
+                app:cardBackgroundColor="#E6111D33">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -140,8 +140,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="📋 Zalecenia na co dzień"
-                        android:textColor="@android:color/white"
-                        android:textSize="20sp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -150,8 +150,8 @@
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="6dp"
                         android:text="• Regularne pomiary temperatury\n• Kontroluj wagę\n• Pij odpowiednią ilość płynów\n• Unikaj dużych skupisk ludzi\n• Przestrzegaj zasad higieny"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -163,7 +163,7 @@
                 android:layout_marginBottom="24dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp"
-                app:cardBackgroundColor="#8014233B">
+                app:cardBackgroundColor="#E6111D33">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -175,8 +175,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="📞 Kontakt alarmowy"
-                        android:textColor="@android:color/white"
-                        android:textSize="20sp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -185,18 +185,18 @@
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="6dp"
                         android:text="W razie nagłych objawów natychmiast zadzwoń na numer alarmowy 112 lub skontaktuj się z ośrodkiem przeszczepowym."
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
 
                     <!-- Przycisk kontaktu -->
                     <Button
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="56dp"
                         android:layout_marginTop="12dp"
                         android:text="ZADZWOŃ 112"
-                        android:textColor="@android:color/white"
+                        android:textColor="#FFFFFF"
                         android:textStyle="bold"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:background="@drawable/button_bg"
                         android:elevation="4dp" />
                 </LinearLayout>
