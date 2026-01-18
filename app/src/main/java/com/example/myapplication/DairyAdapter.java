@@ -14,12 +14,19 @@ import java.util.ArrayList;
 
     public class DairyAdapter extends RecyclerView.Adapter<DairyAdapter.ViewHolder> {
 
-        private ArrayList<DairyEntry> entries;
+        private  final ArrayList<DairyEntry> entries;
 
         public DairyAdapter(ArrayList<DairyEntry> entries) {
             this.entries = entries;
         }
-
+        static class ViewHolder extends RecyclerView.ViewHolder {
+            TextView tvDate, tvText;
+            ViewHolder(View itemView) {
+                super(itemView);
+                tvDate = itemView.findViewById(R.id.tvDate);
+                tvText = itemView.findViewById(R.id.tvText);
+            }
+        }
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,8 +38,12 @@ import java.util.ArrayList;
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             DairyEntry entry = entries.get(position);
-            holder.date.setText(entry.getDate());
-            holder.text.setText(entry.getText());
+            holder.tvDate.setText(entry.date);
+            holder.tvText.setText(
+                    entry.mood + "\n" +
+                         entry.symptoms + "\n" +
+                    entry.meds
+            );
         }
 
         @Override
@@ -40,13 +51,5 @@ import java.util.ArrayList;
             return entries.size();
         }
 
-        public static class ViewHolder extends RecyclerView.ViewHolder {
-            TextView date, text;
-
-            public ViewHolder(@NonNull View itemView) {
-                super(itemView);
-                date = itemView.findViewById(R.id.tvDate);
-                text = itemView.findViewById(R.id.tvText);
-            }
         }
-}
+

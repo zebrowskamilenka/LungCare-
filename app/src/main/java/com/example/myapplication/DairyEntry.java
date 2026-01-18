@@ -1,14 +1,18 @@
+
 package com.example.myapplication;
-
 public class DairyEntry {
-    private String date;
-    private String text;
 
-    public DairyEntry(String date, String text) {
+    public String date;
+    public String mood;
+    public String symptoms;
+    public String meds;
+
+    public DairyEntry(String date, String mood, String symptoms, String meds) {
         this.date = date;
-        this.text = text;
+        this.mood = mood;
+        this.symptoms = symptoms;
+        this.meds = meds;
     }
 
-    public String getDate() { return date; }
-    public String getText() { return text; }
+
 }

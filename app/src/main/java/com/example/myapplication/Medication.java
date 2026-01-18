@@ -1,8 +1,9 @@
-package com.example.myapplication.ui.gallery;
+package com.example.myapplication;
+
 public class Medication {
-    private String name;
-    private String dose;
-    private String time;
+    private final String name;
+    private final String dose;
+    private final String time;
 
     public Medication(String name, String dose, String time) {
         this.name = name;
@@ -14,5 +15,3 @@ public class Medication {
     public String getDose() { return dose; }
     public String getTime() { return time; }
 }
-
-

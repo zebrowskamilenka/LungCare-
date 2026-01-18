@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            // ✔ PRZEJŚCIE DO GŁÓWNEJ CZĘŚCI APLIKACJI (z menu i fragmentami)
+            // PRZEJŚCIE DO GŁÓWNEJ CZĘŚCI APLIKACJI (z menu i fragmentami)
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         });

@@ -33,7 +33,7 @@
         android:id="@+id/nav_medications"
         android:name="com.example.myapplication.ui.gallery.MedicationFragment"
         android:label="Leki"
-        tools:layout="@layout/fragment_medications_list" />
+        tools:layout="@layout/activity_medications" />
 
     <fragment
         android:id="@+id/nav_education"
@@ -54,7 +54,7 @@
         android:id="@+id/nav_vademecum"
         android:name="com.example.myapplication.VademecumFragment"
         android:label="Vademecum"
-        tools:layout="@layout/fragment_vademecum" />
+        tools:layout="@layout/activity_vademecum" />
 
     <fragment
         android:id="@+id/nav_contact"

@@ -5,25 +5,24 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="#22FFFFFF">
+    android:background="@drawable/card_white"
+        >
 
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="01.01.2024"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:textColor="@android:color/white"/>
+            />
 
         <TextView
             android:id="@+id/tvText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Treść wpisu..."
             android:textSize="14sp"
             android:layout_marginTop="4dp"
-            android:textColor="@android:color/white"/>
+            />
 
     </LinearLayout>
 

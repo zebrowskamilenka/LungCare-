@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#F5F7FA"
+    android:background="@drawable/gradient_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/bgLungs"
+        android:layout_width="369dp"
+        android:layout_height="446dp"
+        android:alpha="1.0"
+        android:scaleType="centerCrop"
+        android:src="@drawable/lungs"
+        android:translationY="150dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <!-- Tytuł -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Filmy instruktażowe"
-        android:textColor="#001A4D"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="26sp"
         android:paddingBottom="16dp"/>
@@ -22,6 +36,9 @@
         android:id="@+id/videoList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textColor="@color/white"
         android:divider="#CCCCCC"
         android:dividerHeight="1dp"/>
-</LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>
