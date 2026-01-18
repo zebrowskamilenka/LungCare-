@@ -21,32 +21,33 @@
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="67dp"
+            android:paddingBottom="12dp"
             android:text="Leki"
             android:textColor="@android:color/white"
             android:textSize="26sp"
-            android:textStyle="bold"
-            android:paddingBottom="12dp" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="69dp"
+            android:background="@drawable/card_white"
             android:hint="Wyszukaj lek..."
-            android:padding="12dp"
-            android:background="@drawable/card_white" />
+            android:padding="12dp" />
+
+
         <ListView
             android:id="@+id/listMeds"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
+            android:layout_width="wrap_content"
+            android:layout_height="390dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerMedications"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="12dp" />
+            android:layout_height="104dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1" />
 
     </LinearLayout>
 
