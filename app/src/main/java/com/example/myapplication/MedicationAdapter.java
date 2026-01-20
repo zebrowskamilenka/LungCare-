@@ -1,4 +1,10 @@
 package com.example.myapplication;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +16,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.VH>{
-    private final List<Medication> all;      // pełna lista
-    private final List<Medication> visible;  // lista po filtrze
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
+public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.VH> {
+
+    private final List<Medication> all;
+    private final List<Medication> visible;
 
     public MedicationAdapter(List<Medication> data) {
         all = new ArrayList<>(data);
@@ -30,9 +44,19 @@ public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.VH
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
         Medication m = visible.get(position);
+
         holder.tvName.setText(m.getName());
         holder.tvDose.setText("Dawka: " + m.getDose());
         holder.tvTime.setText("Godzina: " + m.getTime());
+
+        // ✅ KLIK W LEK → SZCZEGÓŁY
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), MedicationDetailsActivity.class);
+            intent.putExtra("name", m.getName());
+            intent.putExtra("dose", m.getDose());
+            intent.putExtra("time", m.getTime());
+            v.getContext().startActivity(intent);
+        });
     }
 
     @Override

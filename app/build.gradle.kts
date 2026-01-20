@@ -41,9 +41,14 @@ android {
 
 dependencies {
     implementation("com.google.android.gms:play-services-maps:18.1.0")
-    implementation("com.kizitonwose.calendar:view:2.9.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+// MaterialCalendarView (miesięczny kalendarz)
+    implementation("com.prolificinteractive:material-calendarview:1.4.3")
+    implementation("androidx.media3:media3-exoplayer:1.4.1")
+    implementation("androidx.media3:media3-ui:1.4.1")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)

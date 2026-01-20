@@ -6,6 +6,7 @@ import android.text.InputType;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,8 +20,14 @@ public class LoginActivity extends AppCompatActivity {
         EditText etLogin = findViewById(R.id.etLogin);
         EditText etHaslo = findViewById(R.id.etHaslo);
         CheckBox cbShow = findViewById(R.id.cbShow);
-        Button btn = findViewById(R.id.loginButton);
+        android.widget.ImageButton btn = findViewById(R.id.loginButton);
+        ImageButton icon = findViewById(R.id.loginButton); // jeśli ImageButton
+// ImageView icon = findViewById(R.id.ivLoginIcon); // jeśli ImageView
 
+        icon.setOnClickListener(v -> {
+            // możesz zrobić to samo co przycisk:
+            btn.performClick();
+        });
         cbShow.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 etHaslo.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);

@@ -22,23 +22,20 @@
         android:layout_height="match_parent">
     <!-- Tytuł -->
     <TextView
-        android:id="@+id/tvTitle"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Filmy instruktażowe"
+        android:text="Wideo edukacyjne "
         android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="26sp"
-        android:paddingBottom="16dp"/>
+        android:paddingBottom="16dp"
+        android:textSize="26dp"
+        android:textStyle="bold"/>
 
-    <!-- LISTA FILMIKÓW -->
-    <ListView
-        android:id="@+id/videoList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/white"
-        android:divider="#CCCCCC"
-        android:dividerHeight="1dp"/>
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvVideos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"/>
     </LinearLayout>
+
 </FrameLayout>

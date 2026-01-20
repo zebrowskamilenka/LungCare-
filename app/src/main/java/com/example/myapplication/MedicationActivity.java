@@ -10,10 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
+import android.content.Intent;
 
 public class MedicationActivity extends AppCompatActivity {
     private EditText etSearch;
     private ListView listMeds;
+    private ArrayList<Medication> meds=new ArrayList<>();
+    private ArrayList<Medication> filtredMeds=new ArrayList<>();
+
 
     private ArrayAdapter<String> adapter;
     private final List<String> allMeds = Arrays.asList(
@@ -85,5 +89,15 @@ public class MedicationActivity extends AppCompatActivity {
         }
 
         adapter.notifyDataSetChanged();
+        listMeds.setOnItemClickListener((parent, view, position, id) -> {
+          String  name  = filteredMeds.get(position); // albo Twoja lista, z której aktualnie korzystasz
+
+            Intent intent = new Intent( MedicationActivity.this,MedicationDetailsActivity.class);
+            intent.putExtra("name", name);
+
+
+
+            startActivity(intent);
+        });
     }
 }
