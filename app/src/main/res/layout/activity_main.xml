@@ -100,14 +100,16 @@
         <View android:layout_width="match_parent" android:layout_height="14dp"/>
 
         <!-- LOGIN BUTTON -->
-        <Button
+        <ImageButton
             android:id="@+id/loginButton"
             android:layout_width="231dp"
             android:layout_height="60dp"
-            android:text="@string/login"
+            android:text="Zaloguj"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/button_bg"
+            android:textColor="@drawable/card_white"
+            android:background="@android:color/holo_blue_bright"
+            android:drawableStart="@drawable/ic_login"
+            android:drawablePadding="8dp"
             android:elevation="6dp"/>
     </LinearLayout>
 

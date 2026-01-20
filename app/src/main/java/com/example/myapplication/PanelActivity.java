@@ -2,14 +2,8 @@ package com.example.myapplication;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.widget.LinearLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.myapplication.ui.EducationFragment;
-import com.example.myapplication.VademecumActivity;
-import com.example.myapplication.ui.gallery.MedicationFragment;
+import android.widget.ImageButton;
 
 public class PanelActivity extends AppCompatActivity {
     @Override
@@ -20,6 +14,11 @@ public class PanelActivity extends AppCompatActivity {
         LinearLayout cardLeki = findViewById(R.id.cardVademecum);
         LinearLayout cardEdukacja = findViewById(R.id.cardLeki);
         LinearLayout cardMapa = findViewById(R.id.cardMapa);
+        ImageButton btnCalendar = findViewById(R.id.btnCalendar);
+        btnCalendar.setOnClickListener(v -> {
+            Intent intent = new Intent(PanelActivity.this, CalendarActivity.class);
+            startActivity(intent);
+        });
         cardMapa.setOnClickListener(v -> {
             Intent intent = new Intent(PanelActivity.this, MapsActivity.class);
             startActivity(intent);

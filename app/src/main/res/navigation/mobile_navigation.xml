@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/nav_calendar"
-        android:name="com.example.myapplication.ui.calendar.CalendarFragment"
+        android:name="com.example.myapplication.CalendarFragment"
         android:label="Kalendarz"
         tools:layout="@layout/fragment_calendar" />
 
@@ -35,11 +35,7 @@
         android:label="Leki"
         tools:layout="@layout/activity_medications" />
 
-    <fragment
-        android:id="@+id/nav_education"
-        android:name="com.example.myapplication.ui.EducationFragment"
-        android:label="Edukacja"
-        tools:layout="@layout/fragment_education" />
+
     <fragment
         android:id="@+id/nav_map"
         android:name="map.UckMapFragment"
@@ -47,9 +43,9 @@
         tools:layout="@layout/fragment_uck_map" />
     <fragment
         android:id="@+id/nav_diary"
-        android:name="com.example.myapplication.ui.diary.DiaryFragment"
+        android:name="com.example.myapplication.DairyFragment"
         android:label="Dzienniczek"
-        tools:layout="@layout/fragment_diary" />
+        tools:layout="@layout/fragment_dairy" />
     <fragment
         android:id="@+id/nav_vademecum"
         android:name="com.example.myapplication.VademecumFragment"

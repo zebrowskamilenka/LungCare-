@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/lungs"
+        android:alpha="0.25"
+        android:scaleType="centerCrop"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvMedName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nazwa leku"
+                android:textStyle="bold"
+                android:textSize="26sp"
+                android:textColor="@android:color/white"
+                android:paddingBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/tvMedDose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dawka: -"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:paddingBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tvMedTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Godzina: -"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:paddingBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/tvMedInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Opis / wskazówki"
+                android:textSize="16sp"
+                android:lineSpacingExtra="6dp"
+                android:textColor="@android:color/white"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
