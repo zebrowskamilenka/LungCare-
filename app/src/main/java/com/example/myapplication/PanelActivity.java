@@ -1,39 +1,42 @@
 package com.example.myapplication;
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
-import android.widget.LinearLayout;
-import android.widget.ImageButton;
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.card.MaterialCardView;
 
 public class PanelActivity extends AppCompatActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_panel);
-        LinearLayout cardDzienniczek = findViewById(R.id.cardDzienniczek);
-        LinearLayout cardLeki = findViewById(R.id.cardVademecum);
-        LinearLayout cardEdukacja = findViewById(R.id.cardLeki);
-        LinearLayout cardMapa = findViewById(R.id.cardMapa);
-        ImageButton btnCalendar = findViewById(R.id.btnCalendar);
-        btnCalendar.setOnClickListener(v -> {
-            Intent intent = new Intent(PanelActivity.this, CalendarActivity.class);
-            startActivity(intent);
-        });
-        cardMapa.setOnClickListener(v -> {
-            Intent intent = new Intent(PanelActivity.this, MapsActivity.class);
-            startActivity(intent);
-        });
-        cardDzienniczek.setOnClickListener(v ->
-                startActivity(new Intent(PanelActivity.this, DiaryActivity.class))
-        );
-        cardLeki.setOnClickListener(v ->
-                startActivity(new Intent(PanelActivity.this, VademecumActivity.class))
-        );
 
-        // leki
-        cardEdukacja.setOnClickListener(v ->
-                startActivity(new Intent(PanelActivity.this, MedicationActivity.class))
-        );
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.menu_activity);
 
-    }
+    MaterialCardView cardDzienniczek = findViewById(R.id.cardDzienniczek);
+    MaterialCardView cardVademecum = findViewById(R.id.cardVademecum);
+    MaterialCardView cardLeki = findViewById(R.id.cardLeki);
+    MaterialCardView cardMapa = findViewById(R.id.cardMapa);
+    MaterialCardView cardContact = findViewById(R.id.cardContact);
+    MaterialCardView cardCalendar=findViewById(R.id.cardCalendar);
+
+    cardDzienniczek.setOnClickListener(v ->
+            startActivity(new Intent(PanelActivity.this, DiaryActivity.class))
+    );
+
+    cardVademecum.setOnClickListener(v ->
+            startActivity(new Intent(PanelActivity.this, VademecumActivity.class))
+    );
+
+    cardLeki.setOnClickListener(v ->
+            startActivity(new Intent(PanelActivity.this, MedicationActivity.class))
+    );
+
+    cardContact.setOnClickListener(v ->
+            startActivity(new Intent(PanelActivity.this, ContactActivity.class))
+    );
+        cardCalendar.setOnClickListener(v ->
+                startActivity(new Intent(PanelActivity.this, CalendarActivity.class))
+        );}
 }

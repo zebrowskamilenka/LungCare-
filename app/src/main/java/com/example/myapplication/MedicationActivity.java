@@ -27,7 +27,14 @@ public class MedicationActivity extends AppCompatActivity {
             "Ibuprofen",
             "Paracetamol",
             "Aspiryna",
-            "Witamina D"
+            "Witamina D",
+
+            "Abacavir + Lamivudine Accord (Iviverz) (tabletki powlekane)",
+    "Abacavir + Lamivudine Sandoz (tabletki powlekane)",
+    "Abagat (kapsułki twarde)",
+
+    "ABE (płyn na skórę)"
+
     );
     private final ArrayList<String> filteredMeds = new ArrayList<>();
 

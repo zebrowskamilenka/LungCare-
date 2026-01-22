@@ -1,7 +1,7 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.text.InputType;
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         // 2. Dopiero potem pobieramy widoki
         EditText etHaslo = findViewById(R.id.etHaslo);
         CheckBox cbShow = findViewById(R.id.cbShow);
-        Button btn = findViewById(R.id.loginButton);
+        ImageButton btn = findViewById(R.id.loginButton);
 
         cbShow.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {

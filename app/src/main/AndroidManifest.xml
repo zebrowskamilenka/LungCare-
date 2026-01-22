@@ -37,6 +37,8 @@
             android:name=".MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
+        <activity android:name=".ContactActivity" />
+
         <activity
             android:name=".VademecumActivity"
             android:exported="false"/>
@@ -53,6 +55,7 @@
             </intent-filter>
         </activity>
 <activity android:name=".MedicationDetailsActivity"/>
+        <activity android:name=".CalendarActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="false"
