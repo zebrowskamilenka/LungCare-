@@ -56,7 +56,7 @@
         </activity>
         <activity android:name=".MeasurmentsDashboardActivity" />
         <activity android:name=".MedicationDetailsActivity"/>
-        <activity android:name=".CalendarActivity"/>
+<!--        <activity android:name=".CalendarActivity"/>-->
         <activity
             android:name=".MainActivity"
             android:exported="false"
