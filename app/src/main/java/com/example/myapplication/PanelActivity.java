@@ -5,38 +5,57 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.card.MaterialCardView;
 
 public class PanelActivity extends AppCompatActivity {
+
+    private MaterialCardView cardCalendar, cardDzienniczek, cardVideo, cardMapa;
+
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.menu_activity);
 
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.menu_activity);
+        // KAFELKI, KTÓRE NAPRAWDĘ ISTNIEJĄ W menu_activity.xml
+        cardCalendar    = findViewById(R.id.cardCalendar);
+        cardDzienniczek = findViewById(R.id.cardDzienniczek);
+        cardVideo       = findViewById(R.id.cardVideo);
+        cardMapa        = findViewById(R.id.cardMapa);
 
-    MaterialCardView cardDzienniczek = findViewById(R.id.cardDzienniczek);
-    MaterialCardView cardVademecum = findViewById(R.id.cardVademecum);
-    MaterialCardView cardLeki = findViewById(R.id.cardLeki);
-    MaterialCardView cardMapa = findViewById(R.id.cardMapa);
-    MaterialCardView cardContact = findViewById(R.id.cardContact);
-    MaterialCardView cardCalendar=findViewById(R.id.cardCalendar);
-
-    cardDzienniczek.setOnClickListener(v ->
-            startActivity(new Intent(PanelActivity.this, DiaryActivity.class))
-    );
-
-    cardVademecum.setOnClickListener(v ->
-            startActivity(new Intent(PanelActivity.this, VademecumActivity.class))
-    );
-
-    cardLeki.setOnClickListener(v ->
-            startActivity(new Intent(PanelActivity.this, MedicationActivity.class))
-    );
-
-    cardContact.setOnClickListener(v ->
-            startActivity(new Intent(PanelActivity.this, ContactActivity.class))
-    );
         cardCalendar.setOnClickListener(v ->
-                startActivity(new Intent(PanelActivity.this, CalendarActivity.class))
-        );}
+                startActivity(new Intent(this, CalendarActivity.class)));
+
+        cardDzienniczek.setOnClickListener(v ->
+                startActivity(new Intent(this, DiaryActivity.class)));
+
+       // cardVideo.setOnClickListener(v ->
+               // startActivity(new Intent(this, Vid.class)));
+
+        cardMapa.setOnClickListener(v ->
+                startActivity(new Intent(this, MapsActivity.class)));
+
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+        bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_start) {
+                return true;
+            } else if (id == R.id.nav_leki) {
+                startActivity(new Intent(this, MedicationActivity.class));
+                return true;
+            } else if (id == R.id.nav_measures) {
+                startActivity(new Intent(this, MeasurmentsDashboardActivity.class));
+                return true;
+            } else if (id == R.id.nav_vademecum) {
+                startActivity(new Intent(this, VademecumActivity.class));
+                return true;
+            } else if (id == R.id.nav_contact) {
+                startActivity(new Intent(this, ContactActivity.class));
+                return true;
+            }
+
+            return false;
+        });
+    }
 }

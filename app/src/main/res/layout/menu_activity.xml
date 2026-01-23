@@ -281,42 +281,7 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- KAFEL 3: Leki -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardLeki"
-            android:layout_width="0dp"
-            android:layout_height="72dp"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="18dp"
-            app:cardElevation="6dp"
-            app:cardUseCompatPadding="true">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="14dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
-                    android:src="@drawable/ic_pill"
-                    android:contentDescription="Leki"
-                    android:background="@drawable/bg_circle_orange"
-                    android:padding="10dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="Leki"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="#0B1B2B"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
 
         <!-- KAFEL 4: Wideo -->
         <com.google.android.material.card.MaterialCardView
@@ -357,41 +322,7 @@
 
         <!-- KAFEL 5: Vademecum -->
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardVademecum"
-            android:layout_width="0dp"
-            android:layout_height="72dp"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="18dp"
-            app:cardElevation="6dp"
-            app:cardUseCompatPadding="true">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="14dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
-                    android:src="@drawable/ic_book"
-                    android:contentDescription="Vademecum"
-                    android:background="@drawable/bg_circle_violet"
-                    android:padding="10dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="Vademecum"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="#0B1B2B"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
         <!-- KAFEL 6: Mapa UCK -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardMapa"
@@ -428,41 +359,8 @@
                     android:textColor="#0B1B2B"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardContact"
-            android:layout_width="0dp"
-            android:layout_height="72dp"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="18dp"
-            app:cardElevation="6dp"
-            app:cardUseCompatPadding="true">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="82dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="14dp">
 
-                <ImageView
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
-                    android:background="@drawable/bg_circle_violet"
-                    android:contentDescription="Kontakt"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_phone" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="Vademecum"
-                    android:textColor="#0B1B2B"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
     </GridLayout>
 
     <!-- Stopka -->
@@ -475,6 +373,17 @@
         android:textColor="#DCE7F5"
         android:textSize="12sp"
         android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled"
+        app:itemIconSize="26dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

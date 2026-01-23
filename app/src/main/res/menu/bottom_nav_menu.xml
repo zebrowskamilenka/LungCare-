@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <item
+        android:id="@+id/nav_start"
+        android:icon="@drawable/ic_home"
+        android:title="Start" />
+
+    <item
+        android:id="@+id/nav_leki"
+        android:icon="@drawable/ic_pill"
+        android:title="Leki" />
+
+    <item
+        android:id="@+id/nav_measures"
+        android:icon="@drawable/ic_heart"
+        android:title="Pomiary" />
+
+    <item
+        android:id="@+id/nav_vademecum"
+        android:icon="@drawable/ic_book"
+        android:title="Vademecum" />
+
+    <item
+        android:id="@+id/nav_contact"
+        android:icon="@drawable/ic_phone"
+        android:title="Kontakt" />
+    </menu>

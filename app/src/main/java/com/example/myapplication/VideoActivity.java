@@ -1,7 +1,7 @@
-//package com.example.myapplication;
-//
-//import android.content.Intent;
-//import android.os.Bundle;
+package com.example.myapplication;
+
+import android.content.Intent;
+import android.os.Bundle;
 //
 //import androidx.appcompat.app.AppCompatActivity;
 //import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,7 +30,7 @@
 //
 //        List<VideoItem> list = new ArrayList<>();
 //        // Na start możesz dać testowe linki MP4 (później podmienisz na swoje)
-//        list.add(new VideoItem("Ćwiczenia oddechowe", "Krótki instruktaż do codziennej praktyki", "https://example.com/video1.mp4"));
+    //    list.add(new VideoItem("Ćwiczenia oddechowe", "Krótki instruktaż do codziennej praktyki", "https://example.com/video1.mp4"));
 //        list.add(new VideoItem("Inhalacja krok po kroku", "Jak poprawnie wykonać inhalację", "https://example.com/video2.mp4"));
 //        list.add(new VideoItem("Higiena i pielęgnacja", "Zalecenia po przeszczepie", "https://example.com/video3.mp4"));
 //
