@@ -1,25 +1,29 @@
 package com.example.myapplication;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
-import android.content.Intent;
 
 public class MedicationActivity extends AppCompatActivity {
+
     private EditText etSearch;
     private ListView listMeds;
-    private ArrayList<Medication> meds=new ArrayList<>();
-    private ArrayList<Medication> filtredMeds=new ArrayList<>();
-
 
     private ArrayAdapter<String> adapter;
+
     private final List<String> allMeds = Arrays.asList(
             "Tacrolimus",
             "Mykofenolan mofetylu",
@@ -28,23 +32,54 @@ public class MedicationActivity extends AppCompatActivity {
             "Paracetamol",
             "Aspiryna",
             "Witamina D",
-
             "Abacavir + Lamivudine Accord (Iviverz) (tabletki powlekane)",
-    "Abacavir + Lamivudine Sandoz (tabletki powlekane)",
-    "Abagat (kapsułki twarde)",
-
-    "ABE (płyn na skórę)"
-
+            "Abacavir + Lamivudine Sandoz (tabletki powlekane)",
+            "Abagat (kapsułki twarde)",
+            "ABE (płyn na skórę)"
     );
+
     private final ArrayList<String> filteredMeds = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_medications); // <- nazwa Twojego layoutu
+        setContentView(R.layout.activity_medications);
+
+        // bottom nav
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+        bottomNav.setSelectedItemId(R.id.nav_leki);
+
+        bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_start) {
+                startActivity(new Intent(this, PanelActivity.class));
+                finish();
+                return true;
+
+            } else if (id == R.id.nav_leki) {
+                return true;
+
+            } else if (id == R.id.nav_measures) {
+                startActivity(new Intent(this, MeasurmentsDashboardActivity.class));
+                finish();
+                return true;
+
+            } else if (id == R.id.nav_vademecum) {
+                startActivity(new Intent(this, VademecumActivity.class));
+                finish();
+                return true;
+
+            } else if (id == R.id.nav_contact) {
+                startActivity(new Intent(this, ContactActivity.class));
+                finish();
+                return true;
+            }
+
+            return false;
+        });
 
         etSearch = findViewById(R.id.etSearch);
-
         listMeds = findViewById(R.id.listMeds);
 
         // start: pokazujemy wszystko
@@ -52,31 +87,32 @@ public class MedicationActivity extends AppCompatActivity {
 
         adapter = new ArrayAdapter<>(
                 this,
-                android.R.layout.simple_list_item_1,
+                R.layout.lekiitem,
+                R.id.tvName,
                 filteredMeds
         );
+
         listMeds.setAdapter(adapter);
 
-        // klik w lek (opcjonalnie)
+        // ✅ ustaw listener kliknięcia RAZ
         listMeds.setOnItemClickListener((parent, view, position, id) -> {
-            String selected = filteredMeds.get(position);
-            // tutaj możesz np. otworzyć szczegóły leku
+            String name = filteredMeds.get(position);
+
+            Intent intent = new Intent(MedicationActivity.this, MedicationDetailsActivity.class);
+            intent.putExtra("name", name);
+            startActivity(intent);
         });
 
-        // LIVE SEARCH po każdej literce
+        // LIVE SEARCH
         etSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 filterList(s.toString());
             }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
+            @Override public void afterTextChanged(Editable s) {}
         });
     }
 
@@ -96,15 +132,5 @@ public class MedicationActivity extends AppCompatActivity {
         }
 
         adapter.notifyDataSetChanged();
-        listMeds.setOnItemClickListener((parent, view, position, id) -> {
-          String  name  = filteredMeds.get(position); // albo Twoja lista, z której aktualnie korzystasz
-
-            Intent intent = new Intent( MedicationActivity.this,MedicationDetailsActivity.class);
-            intent.putExtra("name", name);
-
-
-
-            startActivity(intent);
-        });
     }
 }

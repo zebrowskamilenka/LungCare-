@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
-        android:text="Witaj w LungCare+"
+        android:text=""
         android:textColor="@android:color/white"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -211,7 +211,8 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardCalendar"
             android:layout_width="0dp"
-            android:layout_height="72dp"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="18dp"
@@ -234,13 +235,17 @@
                     android:padding="10dp"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
+                    android:layout_weight="1"
                     android:text="Kalendarz"
                     android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="#0B1B2B"/>
+                    android:textSize="15sp"
+                    android:textColor="#0B1B2B"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:breakStrategy="simple" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -248,7 +253,8 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardDzienniczek"
             android:layout_width="0dp"
-            android:layout_height="72dp"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="18dp"
@@ -263,21 +269,26 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="42dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="42dp"
-                    android:src="@drawable/ic_edit"
-                    android:contentDescription="Dzienniczek"
                     android:background="@drawable/bg_circle_blue"
-                    android:padding="10dp"/>
+                    android:contentDescription="Dzienniczek"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_edit" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
+                    android:layout_weight="1"
                     android:text="Dzienniczek"
                     android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="#0B1B2B"/>
+                    android:textSize="12sp"
+                    android:textColor="#0B1B2B"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:breakStrategy="simple" />
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -287,7 +298,8 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardVideo"
             android:layout_width="0dp"
-            android:layout_height="72dp"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="18dp"
@@ -310,13 +322,18 @@
                     android:padding="10dp"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:text="Wideo"
+                    android:layout_weight="1"
+                    android:text="   Wideo"
                     android:textStyle="bold"
                     android:textSize="16sp"
-                    android:textColor="#0B1B2B"/>
+                    android:textColor="#0B1B2B"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:breakStrategy="simple" />
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -327,7 +344,8 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardMapa"
             android:layout_width="0dp"
-            android:layout_height="72dp"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="18dp"
@@ -350,13 +368,18 @@
                     android:padding="10dp"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:text="Mapa UCK"
+                    android:layout_weight="1"
+                    android:text="    Mapa"
                     android:textStyle="bold"
                     android:textSize="16sp"
-                    android:textColor="#0B1B2B"/>
+                    android:textColor="#0B1B2B"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:breakStrategy="simple" />
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

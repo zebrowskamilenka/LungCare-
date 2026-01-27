@@ -1,10 +1,12 @@
 package com.example.myapplication;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 
 public class ContactActivity extends AppCompatActivity {
@@ -25,6 +27,39 @@ public class ContactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
+
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+        bottomNav.setSelectedItemId(R.id.nav_contact);
+
+        bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_start) {
+                startActivity(new Intent(this, PanelActivity.class));
+                finish();
+                return true;
+
+            } else if (id == R.id.nav_leki) {
+                startActivity(new Intent(this, MedicationActivity.class));
+                finish();
+                return true;
+
+            } else if (id == R.id.nav_measures) {
+                startActivity(new Intent(this, MeasurmentsDashboardActivity.class));
+                finish();
+                return true;
+
+            } else if (id == R.id.nav_vademecum) {
+                startActivity(new Intent(this, VademecumActivity.class));
+                finish();
+                return true;
+
+            } else if (id == R.id.nav_contact) {
+                return true; // jesteś tu
+            }
+
+            return false;
+        });
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Kontakt");

@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // Sprawdzenie na sztywno
-            boolean loginOk = login.equals(LOGIN_1) || login.equals(LOGIN_2); // jeśli ma być tylko admin -> usuń "|| login.equals(LOGIN_2)"
+            boolean loginOk = login.equals(LOGIN_1);
             boolean passOk = haslo.equals(PASSWORD);
 
             if (!loginOk || !passOk) {

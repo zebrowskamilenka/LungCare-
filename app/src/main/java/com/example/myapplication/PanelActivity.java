@@ -17,6 +17,16 @@ public class PanelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_activity);
 
+        String username = getIntent().getStringExtra("username");
+        if (username == null || username.trim().isEmpty()) username = "Admin";
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Witaj, " + username);
+        } else {
+            setTitle("Witaj, " + username);
+        }
+
+
         // KAFELKI, KTÓRE NAPRAWDĘ ISTNIEJĄ W menu_activity.xml
         cardCalendar    = findViewById(R.id.cardCalendar);
         cardDzienniczek = findViewById(R.id.cardDzienniczek);
