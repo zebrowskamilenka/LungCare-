@@ -1,0 +1,19 @@
+<resources>
+    <!-- tło -->
+    <color name="bg_start">#14233B</color>
+    <color name="bg_end">#234566</color>
+
+    <!-- pola -->
+    <color name="field_bg">#1E2B40</color>
+    <color name="field_text">#FFFFFF</color>
+    <color name="field_hint">#A9B8CC</color>
+
+    <!-- przycisk -->
+    <color name="btn_start">#3F6FAF</color>
+    <color name="btn_end">#2E5C96</color>
+    <color name="btn_text">#FFFFFF</color>
+
+    <!-- checkbox -->
+    <color name="check_text">#EAF2FA</color>
+    <color name="check_stroke">#A9B8CC</color>
+</resources>
