@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg"
     android:id="@+id/container"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp">
+    >
     <ImageView
         android:id="@+id/lungsImage"
         android:layout_width="match_parent"
@@ -54,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dzisiaj"
-                android:textColor="#0B1B2B"
+                android:textColor="?android:attr/textColorPrimary"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -64,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="3 zadania do wykonania"
-                android:textColor="#334155"
+                android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
@@ -105,7 +104,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="08:00  Tacrolimus"
-                        android:textColor="#0B1B2B"
+                        android:textColor="?android:attr/textColorPrimary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -114,7 +113,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Przyjęte"
-                        android:textColor="#64748B"
+                        android:textColor="?android:attr/textColorSecondary"
                         android:textSize="13sp" />
                 </LinearLayout>
 
@@ -160,7 +159,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="09:00  Inhalacja"
-                        android:textColor="#0B1B2B"
+                        android:textColor="?android:attr/textColorSecondary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -169,7 +168,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Do wykonania"
-                        android:textColor="#64748B"
+                        android:textColor="?android:attr/textColorPrimary"
                         android:textSize="13sp" />
                 </LinearLayout>
 
@@ -178,7 +177,7 @@
                     android:layout_height="22dp"
                     android:contentDescription="Szczegóły"
                     android:src="@drawable/ic_chevron_right"
-                    app:tint="#94A3B8" />
+                    app:tint="?android:attr/textColorSecondary" />
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
@@ -237,12 +236,12 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="15sp"
                     android:layout_weight="1"
-                    android:text="Kalendarz"
+                    android:text="  Kalendarz"
                     android:textStyle="bold"
                     android:textSize="15sp"
-                    android:textColor="#0B1B2B"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:maxLines="2"
                     android:ellipsize="end"
                     android:breakStrategy="simple" />
@@ -283,8 +282,8 @@
                     android:layout_weight="1"
                     android:text="Dzienniczek"
                     android:textStyle="bold"
-                    android:textSize="12sp"
-                    android:textColor="#0B1B2B"
+                    android:textSize="15sp"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:maxLines="1"
                     android:ellipsize="end"
                     android:breakStrategy="simple" />
@@ -326,10 +325,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_weight="1"
-                    android:text="   Wideo"
+                    android:text="     Wideo"
                     android:textStyle="bold"
                     android:textSize="16sp"
-                    android:textColor="#0B1B2B"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:maxLines="2"
                     android:ellipsize="end"
                     android:breakStrategy="simple" />
@@ -372,10 +371,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_weight="1"
-                    android:text="    Mapa"
+                    android:text="      Mapa"
                     android:textStyle="bold"
                     android:textSize="16sp"
-                    android:textColor="#0B1B2B"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:maxLines="1"
                     android:ellipsize="end"
                     android:breakStrategy="simple" />
@@ -404,7 +403,7 @@
         android:id="@+id/bottom_nav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="?attr/colorSurface"
         app:itemIconSize="26dp"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
