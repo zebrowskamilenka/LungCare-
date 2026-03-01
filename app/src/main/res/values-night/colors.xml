@@ -16,4 +16,8 @@
     <!-- checkbox -->
     <color name="check_text">#EAF2FA</color>
     <color name="check_stroke">#A9B8CC</color>
+
+    <color name="card_bg">#363C42</color>
+    <color name="card_stroke">#40FFFFFF</color>
+    <color name="divider">#8FB3D9</color>
 </resources>

@@ -27,4 +27,9 @@
         <color name="check_text">#2C3E57</color>
         <color name="check_stroke">#2E5C96</color>
 
+    <color name="card_bg">#FFFFFF</color>
+    <color name="card_stroke">#E6EEF8</color>
+    <color name="divider">#8FB3D9</color>
+
+
 </resources>
