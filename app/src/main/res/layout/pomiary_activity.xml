@@ -2,10 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:fitsSystemWindows="true">
+
     <ImageView
         android:id="@+id/lungsImage"
         android:layout_width="match_parent"
@@ -13,57 +16,35 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/lungs"
         android:scaleType="fitCenter"
+        android:alpha="0.10"
         android:src="@drawable/lungs" />
-    <!-- Nagłówek -->
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Wyniki i pomiary"
-        android:textColor="@android:color/white"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
-        android:id="@+id/tvSubtitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="Podgląd trendów i ostatnich wartości"
-        android:textColor="#DCE7F5"
-        android:textSize="13sp"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!-- Scroll z kartami -->
     <ScrollView
         android:id="@+id/scroll"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="12dp"
         android:fillViewport="true"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
+        android:scrollbars="none"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:paddingTop="?attr/actionBarSize"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="96dp">
+            android:paddingBottom="120dp">
 
-            <!-- KARTA: Zakres -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardRange"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/card_bg"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp"
                 app:cardCornerRadius="22dp"
-                app:cardElevation="6dp"
+                app:cardElevation="2dp"
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
@@ -75,61 +56,79 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Zakres"
+                        android:text="@string/measurements_range"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="#0B1B2B"/>
+                        android:textColor="@color/field_text"/>
 
                     <com.google.android.material.button.MaterialButtonToggleGroup
                         android:id="@+id/toggleRange"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        app:singleSelection="true">
+                        android:layout_marginTop="12dp"
+                        app:singleSelection="true"
+                        app:checkedButton="@id/btn7">
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btn7"
                             style="@style/Widget.Material3.Button.OutlinedButton"
                             android:layout_width="0dp"
-                            android:layout_height="48dp"
+                            android:layout_height="56dp"
                             android:layout_weight="1"
-                            android:text="7 dni"/>
+                            android:text="@string/range_7_days"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/field_text"
+                            app:strokeColor="@color/btn_start"
+                            app:strokeWidth="2dp"/>
+
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btn30"
                             style="@style/Widget.Material3.Button.OutlinedButton"
                             android:layout_width="0dp"
-                            android:layout_height="48dp"
+                            android:layout_height="56dp"
                             android:layout_weight="1"
-                            android:text="30 dni"/>
+                            android:text="@string/range_30_days"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/field_text"
+                            app:strokeColor="@color/btn_start"
+                            app:strokeWidth="2dp"/>
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btn90"
                             style="@style/Widget.Material3.Button.OutlinedButton"
                             android:layout_width="0dp"
-                            android:layout_height="48dp"
+                            android:layout_height="56dp"
                             android:layout_weight="1"
-                            android:text="90 dni"/>
+                            android:text="@string/range_90_days"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/field_text"
+                            app:strokeColor="@color/btn_start"
+                            app:strokeWidth="2dp"/>
                     </com.google.android.material.button.MaterialButtonToggleGroup>
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- KARTA: FEV1 -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardFev1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                app:cardBackgroundColor="@color/card_bg"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp"
                 app:cardCornerRadius="22dp"
-                app:cardElevation="6dp"
+                app:cardElevation="2dp"
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -142,28 +141,28 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="FEV1"
+                            android:text="@string/measurements_fev1"
                             android:textSize="18sp"
                             android:textStyle="bold"
-                            android:textColor="#0B1B2B"/>
+                            android:textColor="@color/field_text"/>
 
                         <TextView
                             android:id="@+id/tvFev1Value"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2.1"
-                            android:textSize="20sp"
+                            android:textSize="22sp"
                             android:textStyle="bold"
-                            android:textColor="#0B1B2B"/>
+                            android:textColor="@color/field_text"/>
 
                         <TextView
                             android:id="@+id/tvFev1Unit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
-                            android:text="L"
+                            android:text="@string/unit_l"
                             android:textSize="14sp"
-                            android:textColor="#64748B"/>
+                            android:textColor="@color/field_hint"/>
                     </LinearLayout>
 
                     <TextView
@@ -171,35 +170,35 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Ostatni pomiar: dziś 08:15"
+                        android:text="@string/last_measurement_fev1"
                         android:textSize="13sp"
-                        android:textColor="#64748B"/>
+                        android:textColor="@color/field_hint"/>
 
-                    <!-- Placeholder na wykres -->
                     <FrameLayout
                         android:id="@+id/chartFev1"
                         android:layout_width="match_parent"
                         android:layout_height="110dp"
                         android:layout_marginTop="12dp"
-                        android:background="@drawable/card_white"/>
+                        android:background="@android:color/transparent"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- KARTA: Saturacja -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardSpo2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                app:cardBackgroundColor="@color/card_bg"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp"
                 app:cardCornerRadius="22dp"
-                app:cardElevation="6dp"
+                app:cardElevation="2dp"
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -212,28 +211,28 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Saturacja"
+                            android:text="@string/measurements_spo2"
                             android:textSize="18sp"
                             android:textStyle="bold"
-                            android:textColor="#0B1B2B"/>
+                            android:textColor="@color/field_text"/>
 
                         <TextView
                             android:id="@+id/tvSpo2Value"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="97"
-                            android:textSize="20sp"
+                            android:textSize="22sp"
                             android:textStyle="bold"
-                            android:textColor="#0B1B2B"/>
+                            android:textColor="@color/field_text"/>
 
                         <TextView
                             android:id="@+id/tvSpo2Unit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
-                            android:text="%"
+                            android:text="@string/unit_percent"
                             android:textSize="14sp"
-                            android:textColor="#64748B"/>
+                            android:textColor="@color/field_hint"/>
                     </LinearLayout>
 
                     <TextView
@@ -241,34 +240,35 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Ostatni pomiar: dziś 12:00"
+                        android:text="@string/last_measurement_spo2"
                         android:textSize="13sp"
-                        android:textColor="#64748B"/>
+                        android:textColor="@color/field_hint"/>
 
                     <FrameLayout
                         android:id="@+id/chartSpo2"
                         android:layout_width="match_parent"
                         android:layout_height="110dp"
                         android:layout_marginTop="12dp"
-                        android:background="@drawable/card_white"/>
+                        android:background="@android:color/transparent"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- KARTA: Temperatura -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardTemp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                app:cardBackgroundColor="@color/card_bg"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp"
                 app:cardCornerRadius="22dp"
-                app:cardElevation="6dp"
+                app:cardElevation="2dp"
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -281,28 +281,28 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Temperatura"
+                            android:text="@string/measurements_temp"
                             android:textSize="18sp"
                             android:textStyle="bold"
-                            android:textColor="#0B1B2B"/>
+                            android:textColor="@color/field_text"/>
 
                         <TextView
                             android:id="@+id/tvTempValue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="36.7"
-                            android:textSize="20sp"
+                            android:textSize="22sp"
                             android:textStyle="bold"
-                            android:textColor="#0B1B2B"/>
+                            android:textColor="@color/field_text"/>
 
                         <TextView
                             android:id="@+id/tvTempUnit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
-                            android:text="°C"
+                            android:text="@string/unit_celsius"
                             android:textSize="14sp"
-                            android:textColor="#64748B"/>
+                            android:textColor="@color/field_hint"/>
                     </LinearLayout>
 
                     <TextView
@@ -310,32 +310,34 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Ostatni pomiar: wczoraj 19:10"
+                        android:text="@string/last_measurement_temp"
                         android:textSize="13sp"
-                        android:textColor="#64748B"/>
+                        android:textColor="@color/field_hint"/>
 
                     <FrameLayout
                         android:id="@+id/chartTemp"
                         android:layout_width="match_parent"
                         android:layout_height="110dp"
                         android:layout_marginTop="12dp"
-                        android:background="@drawable/card_white"/>
+                        android:background="@android:color/transparent"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- Przycisk dodawania (pływający) -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAddMeasurement"
         style="@style/Widget.Material3.Button.TonalButton"
         android:layout_width="wrap_content"
-        android:layout_height="52dp"
-        android:text="+ Dodaj pomiar"
+        android:layout_height="56dp"
+        android:text="@string/add_measurement"
+        android:textColor="@color/btn_text"
+        android:textStyle="bold"
+        app:backgroundTint="@color/btn_start"
         app:cornerRadius="18dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

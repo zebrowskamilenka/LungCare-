@@ -44,6 +44,11 @@ public class MedicationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medications);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Leki");
+        } else {
+            setTitle("Leki");
+        }
 
         // bottom nav
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);

@@ -13,6 +13,11 @@ public class VademecumActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_vademecum); // <-- dopasuj nazwę layoutu
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Vademecum");
+        } else {
+            setTitle("Vademecum");
+        }
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
         if (bottomNav != null) {

@@ -18,4 +18,46 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_panel">PanelActivity</string>
+    <string name="vademecum_meds_title">💊 Leki immunosupresyjne</string>
+    <string name="vademecum_meds_desc">• Przyjmuj leki zawsze o tych samych godzinach\n• Nie pomijaj dawek\n• Nigdy nie podwajaj dawki bez konsultacji z lekarzem\n• Przechowuj leki zgodnie z zaleceniami</string>
+    <string name="vademecum_alarm_title">🚨 Objawy alarmowe</string>
+    <string name="vademecum_alarm_desc">• Gorączka powyżej 38°C\n• Duszność\n• Silny kaszel\n• Ból w klatce piersiowej\n• Nagłe pogorszenie samopoczucia</string>
+    <string name="vademecum_daily_title">📋 Zalecenia na co dzień</string>
+    <string name="vademecum_daily_desc">• Regularne pomiary temperatury\n• Kontroluj wagę\n• Pij odpowiednią ilość płynów\n• Unikaj dużych skupisk ludzi\n• Przestrzegaj zasad higieny</string>
+    <string name="vademecum_contact_title">📞 Kontakt alarmowy</string>
+    <string name="vademecum_contact_desc">W razie nagłych objawów natychmiast zadzwoń na numer alarmowy 112 lub skontaktuj się z ośrodkiem przeszczepowym.</string>
+    <string name="call_112">ZADZWOŃ 112</string>
+    <string name="vademecum_title">VADEMECUM PACJENTA</string>
+    <string name="measurements_title">Wyniki i pomiary</string>
+    <string name="measurements_subtitle">Podgląd trendów i ostatnich wartości</string>
+    <string name="measurements_range">Zakres</string>
+    <string name="range_7_days">7 dni</string>
+    <string name="range_30_days">30 dni</string>
+    <string name="range_90_days">90 dni</string>
+    <string name="measurements_fev1">FEV1</string>
+    <string name="unit_l">L</string>
+    <string name="last_measurement_fev1">Ostatni pomiar: dziś 08:15</string>
+    <string name="measurements_spo2">Saturacja</string>
+    <string name="unit_percent">%</string>
+    <string name="last_measurement_spo2">Ostatni pomiar: dziś 12:00</string>
+    <string name="measurements_temp">Temperatura</string>
+    <string name="unit_celsius">°C</string>
+    <string name="last_measurement_temp">Ostatni pomiar: wczoraj 19:10</string>
+    <string name="add_measurement">+ Dodaj pomiar</string>
+    <string name="contact_title">Kontakt</string>
+    <string name="contact_subtitle">Szybki kontakt z zespołem medycznym</string>
+    <string name="contact_uck">Ośrodek transplantacyjny UCK</string>
+    <string name="contact_uck_hours">Godziny: 08:00–15:00</string>
+    <string name="contact_coord">Koordynator transplantacyjny</string>
+    <string name="contact_coord_desc">W sprawach organizacyjnych i zaleceń</string>
+    <string name="contact_psych">Psycholog</string>
+    <string name="contact_psych_desc">Wsparcie emocjonalne po przeszczepie</string>
+    <string name="contact_urgent">Pilny kontakt (dyżur)</string>
+    <string name="contact_urgent_desc">W razie gwałtownego pogorszenia stanu</string>
+    <string name="btn_call">ZADZWOŃ</string>
+    <string name="btn_email">E-MAIL</string>
+    <string name="btn_nav">NAWIGUJ</string>
+    <string name="btn_call_now">ZADZWOŃ TERAZ</string>
+
+
 </resources>

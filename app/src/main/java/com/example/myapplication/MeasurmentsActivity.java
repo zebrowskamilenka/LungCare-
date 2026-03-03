@@ -36,6 +36,12 @@ public class MeasurmentsActivity extends AppCompatActivity {
         readTypeFromIntent();
         setupTitle();
         setupBottomNav();
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(getTitle(type));
+        } else {
+            setTitle(getTitle(type));
+        }
         renderChart(getSampleSeries(type), getLabel(type));
         renderHistory(getSampleSeries(type), getUnit(type));
     }
