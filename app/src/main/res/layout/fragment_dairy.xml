@@ -14,7 +14,7 @@
         android:src="@drawable/lungs"
         android:translationY="150dp"/>
 
-    <!-- WARSTWA 2 — GRADIENT -->
+
 
 
     <!-- WARSTWA 3 — TREŚĆ DZIENNICZKA -->
@@ -25,7 +25,7 @@ android:padding="20dp">
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="40dp"
     android:orientation="vertical">
 
         <!-- Tytuł -->
@@ -39,19 +39,22 @@ android:padding="20dp">
             android:paddingBottom="20dp" />
 
         <!-- DATA -->
-        <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Wybierz datę"
-            android:textColor="#444"
-            android:textSize="18sp"
-            android:padding="12dp"
-            android:background="@drawable/card_white"
-            android:drawablePadding="10dp"/>
 
-        <!-- SAMOPOCZUCIE -->
-        <EditText
+    <!-- SAMOPOCZUCIE -->
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_white"
+        android:drawablePadding="10dp"
+        android:padding="12dp"
+        android:text="Wybierz datę"
+
+        android:textColor="#444"
+        android:textSize="18sp" />
+
+    <EditText
             android:id="@+id/etMood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,7 +62,7 @@ android:padding="20dp">
             android:padding="15dp"
             android:background="@drawable/card_white"
             android:textColor="#222"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="75dp" />
 
         <!-- OBJAWY -->
         <EditText
@@ -70,11 +73,7 @@ android:padding="20dp">
             android:padding="15dp"
             android:background="@drawable/card_white"
             android:textColor="#222"
-            android:layout_marginTop="15dp" />
-
-        <!-- LEKI -->
-
-    <!-- PRZYCISK -->
+            android:layout_marginTop="85dp" />
 
 
 
@@ -83,22 +82,22 @@ android:padding="20dp">
         android:id="@+id/etMeds"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="95dp"
         android:background="@drawable/card_white"
         android:hint="Leki przyjęte"
         android:padding="15dp"
         android:textColor="#222" />
 
     <Button
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Zapisz wpis"
-            android:backgroundTint="#4CAF50"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp"
-            android:padding="12dp"
-            android:textSize="18sp" />
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="105dp"
+        android:backgroundTint="#FF6200EE"
+        android:padding="12dp"
+        android:text="Zapisz wpis"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
 </LinearLayout>
 

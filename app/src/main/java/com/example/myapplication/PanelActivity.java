@@ -16,18 +16,26 @@ public class PanelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_activity);
+        MaterialCardView cardVideos = findViewById(R.id.cardVideo);
 
+        cardVideos.setOnClickListener(v -> {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.cardVideo, new VideoActivity())
+                    .addToBackStack(null)
+                    .commit();
+        });
         // KAFELKI, KTÓRE NAPRAWDĘ ISTNIEJĄ W menu_activity.xml
         cardCalendar    = findViewById(R.id.cardCalendar);
         cardDzienniczek = findViewById(R.id.cardDzienniczek);
-        cardVideo       = findViewById(R.id.cardVideo);
+        //cardVideo       = findViewById(R.id.cardVideo);
         cardMapa        = findViewById(R.id.cardMapa);
 
         cardCalendar.setOnClickListener(v ->
                 startActivity(new Intent(this, CalendarActivity.class)));
 
         cardDzienniczek.setOnClickListener(v ->
-                startActivity(new Intent(this, DiaryActivity.class)));
+                startActivity(new Intent(this, DairyFragment.class)));
 
        // cardVideo.setOnClickListener(v ->
                // startActivity(new Intent(this, Vid.class)));
