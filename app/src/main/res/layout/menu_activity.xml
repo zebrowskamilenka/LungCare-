@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg"
     android:id="@+id/container"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp">
+    >
     <ImageView
         android:id="@+id/lungsImage"
         android:layout_width="match_parent"
@@ -22,7 +21,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
-        android:text="Witaj w LungCare+"
+        android:text=""
         android:textColor="@android:color/white"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -54,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dzisiaj"
-                android:textColor="#0B1B2B"
+                android:textColor="?android:attr/textColorPrimary"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -64,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="3 zadania do wykonania"
-                android:textColor="#334155"
+                android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
@@ -105,7 +104,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="08:00  Tacrolimus"
-                        android:textColor="#0B1B2B"
+                        android:textColor="?android:attr/textColorPrimary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -114,7 +113,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Przyjęte"
-                        android:textColor="#64748B"
+                        android:textColor="?android:attr/textColorSecondary"
                         android:textSize="13sp" />
                 </LinearLayout>
 
@@ -131,7 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="12dp"
-                android:background="#E2E8F0" />
+                android:background="@color/divider" />
 
             <!-- Zadanie 2 -->
             <LinearLayout
@@ -160,7 +159,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="09:00  Inhalacja"
-                        android:textColor="#0B1B2B"
+                        android:textColor="?android:attr/textColorPrimary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -169,7 +168,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Do wykonania"
-                        android:textColor="#64748B"
+                        android:textColor="?android:attr/textColorSecondary"
                         android:textSize="13sp" />
                 </LinearLayout>
 
@@ -178,7 +177,7 @@
                     android:layout_height="22dp"
                     android:contentDescription="Szczegóły"
                     android:src="@drawable/ic_chevron_right"
-                    app:tint="#94A3B8" />
+                    app:tint="?android:attr/textColorSecondary" />
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
@@ -211,12 +210,16 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardCalendar"
             android:layout_width="0dp"
-            android:layout_height="72dp"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="18dp"
             app:cardElevation="6dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="@color/card_bg"
+            app:strokeColor="@color/card_stroke"
+            app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -234,13 +237,17 @@
                     android:padding="10dp"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="Kalendarz"
+                    android:layout_marginStart="15sp"
+                    android:layout_weight="1"
+                    android:text="  Kalendarz"
                     android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="#0B1B2B"/>
+                    android:textSize="15sp"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:breakStrategy="simple" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -248,7 +255,8 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardDzienniczek"
             android:layout_width="0dp"
-            android:layout_height="72dp"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="18dp"
@@ -263,21 +271,26 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="42dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="42dp"
-                    android:src="@drawable/ic_edit"
-                    android:contentDescription="Dzienniczek"
                     android:background="@drawable/bg_circle_blue"
-                    android:padding="10dp"/>
+                    android:contentDescription="Dzienniczek"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_edit" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
+                    android:layout_weight="1"
                     android:text="Dzienniczek"
                     android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="#0B1B2B"/>
+                    android:textSize="15sp"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:breakStrategy="simple" />
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -287,7 +300,8 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardVideo"
             android:layout_width="0dp"
-            android:layout_height="72dp"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="18dp"
@@ -310,13 +324,18 @@
                     android:padding="10dp"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:text="Wideo"
+                    android:layout_weight="1"
+                    android:text="     Wideo"
                     android:textStyle="bold"
                     android:textSize="16sp"
-                    android:textColor="#0B1B2B"/>
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:breakStrategy="simple" />
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -327,7 +346,8 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardMapa"
             android:layout_width="0dp"
-            android:layout_height="72dp"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="18dp"
@@ -350,13 +370,18 @@
                     android:padding="10dp"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:text="Mapa UCK"
+                    android:layout_weight="1"
+                    android:text="      Mapa"
                     android:textStyle="bold"
                     android:textSize="16sp"
-                    android:textColor="#0B1B2B"/>
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:breakStrategy="simple" />
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -376,16 +401,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        app:menu="@menu/bottom_nav_menu"
-        app:labelVisibilityMode="labeled"
+        android:background="?attr/colorSurface"
         app:itemIconSize="26dp"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

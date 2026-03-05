@@ -8,7 +8,6 @@
     android:background="@drawable/gradient_bg"
     tools:context=".VademecumFragment">
 
-    <!-- Tło z płuc em -->
     <ImageView
         android:id="@+id/lungsBackground"
         android:layout_width="match_parent"
@@ -23,12 +22,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- ScrollView dla całej zawartości -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="60dp"
@@ -39,28 +37,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Nagłówek -->
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="20dp"
-                android:text="VADEMECUM PACJENTA"
-                android:textColor="#FFFFFF"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:background="#CC0E1A33"
-                android:elevation="8dp" />
 
-            <!-- Sekcja 1 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="6dp"
-                app:cardBackgroundColor="#E6111D33">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_bg">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -71,8 +55,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="💊 Leki immunosupresyjne"
-                        android:textColor="#FFFFFF"
+                        android:text="@string/vademecum_meds_title"
+                        android:textColor="@color/field_text"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -81,20 +65,19 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="6dp"
-                        android:text="• Przyjmuj leki zawsze o tych samych godzinach\n• Nie pomijaj dawek\n• Nigdy nie podwajaj dawki bez konsultacji z lekarzem\n• Przechowuj leki zgodnie z zaleceniami"
-                        android:textColor="#FFFFFF"
+                        android:text="@string/vademecum_meds_desc"
+                        android:textColor="@color/field_hint"
                         android:textSize="18sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Sekcja 2 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="6dp"
-                app:cardBackgroundColor="#E6111D33">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_bg">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -105,8 +88,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🚨 Objawy alarmowe"
-                        android:textColor="#FFFFFF"
+                        android:text="@string/vademecum_alarm_title"
+                        android:textColor="@color/field_text"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -115,20 +98,19 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="6dp"
-                        android:text="• Gorączka powyżej 38°C\n• Duszność\n• Silny kaszel\n• Ból w klatce piersiowej\n• Nagłe pogorszenie samopoczucia"
-                        android:textColor="#FFFFFF"
+                        android:text="@string/vademecum_alarm_desc"
+                        android:textColor="@color/field_hint"
                         android:textSize="18sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Sekcja 3 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="6dp"
-                app:cardBackgroundColor="#E6111D33">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_bg">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -139,8 +121,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="📋 Zalecenia na co dzień"
-                        android:textColor="#FFFFFF"
+                        android:text="@string/vademecum_daily_title"
+                        android:textColor="@color/field_text"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -149,21 +131,20 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="6dp"
-                        android:text="• Regularne pomiary temperatury\n• Kontroluj wagę\n• Pij odpowiednią ilość płynów\n• Unikaj dużych skupisk ludzi\n• Przestrzegaj zasad higieny"
-                        android:textColor="#FFFFFF"
+                        android:text="@string/vademecum_daily_desc"
+                        android:textColor="@color/field_hint"
                         android:textSize="18sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Sekcja 4 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="24dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="6dp"
-                app:cardBackgroundColor="#E6111D33">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_bg">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -174,8 +155,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="📞 Kontakt alarmowy"
-                        android:textColor="#FFFFFF"
+                        android:text="@string/vademecum_contact_title"
+                        android:textColor="@color/field_text"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -184,25 +165,36 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="6dp"
-                        android:text="W razie nagłych objawów natychmiast zadzwoń na numer alarmowy 112 lub skontaktuj się z ośrodkiem przeszczepowym."
-                        android:textColor="#FFFFFF"
+                        android:text="@string/vademecum_contact_desc"
+                        android:textColor="@color/field_hint"
                         android:textSize="18sp" />
 
-                    <!-- Przycisk kontaktu -->
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="ZADZWOŃ 112"
-                        android:textColor="#FFFFFF"
+                        android:text="@string/call_112"
+                        android:textColor="@color/btn_text"
                         android:textStyle="bold"
                         android:textSize="18sp"
-                        android:background="@drawable/button_bg"
+                        android:backgroundTint="@color/btn_start"
                         android:elevation="4dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled"
+        app:itemIconSize="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

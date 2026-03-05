@@ -99,7 +99,9 @@ android:padding="20dp">
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
+
 </LinearLayout>
 
 </ScrollView>
+
     </FrameLayout>
