@@ -5,6 +5,7 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
 
+    <!-- FRAGMENTY (UI) -->
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.myapplication.ui.home.HomeFragment"
@@ -24,40 +25,40 @@
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
-        android:id="@+id/nav_calendar"
-        android:name="com.example.myapplication.CalendarFragment"
-        android:label="Kalendarz"
-        tools:layout="@layout/fragment_calendar" />
-
-    <fragment
-        android:id="@+id/nav_medications"
-        android:name="com.example.myapplication.ui.gallery.MedicationFragment"
-        android:label="Leki"
-        tools:layout="@layout/activity_medications" />
-
+        android:id="@+id/nav_vademecum_frag"
+        android:name="com.example.myapplication.VademecumActivity"
+        android:label="Vademecum"
+        tools:layout="@layout/fragment_vademecum" />
 
     <fragment
         android:id="@+id/nav_map"
-        android:name="map.UckMapFragment"
+        android:name="com.example.myapplication.UckMapFragment"
         android:label="Mapa UCK"
         tools:layout="@layout/fragment_uck_map" />
-    <fragment
-        android:id="@+id/nav_diary"
-        android:name="com.example.myapplication.DairyFragment"
-        android:label="Dzienniczek"
-        tools:layout="@layout/fragment_dairy" />
-    <fragment
-        android:id="@+id/nav_vademecum"
-        android:name="com.example.myapplication.VademecumFragment"
-        android:label="Vademecum"
-        tools:layout="@layout/activity_vademecum" />
 
-    <fragment
+    <!-- AKTYWNOŚCI (EKRANY GŁÓWNE) -->
+    <activity
+        android:id="@+id/nav_calendar"
+        android:name="com.example.myapplication.CalendarActivity"
+        android:label="Kalendarz"
+        tools:layout="@layout/fragment_calendar" />
+
+    <activity
+        android:id="@+id/nav_diary"
+        android:name="com.example.myapplication.DiaryActivity"
+        android:label="Dzienniczek"
+        tools:layout="@layout/activity_diary" />
+
+    <activity
+        android:id="@+id/nav_medications"
+        android:name="com.example.myapplication.MedicationActivity"
+        android:label="Leki"
+        tools:layout="@layout/activity_medications" />
+
+    <activity
         android:id="@+id/nav_contact"
-        android:name="com.example.myapplication.ui.contact.ContactFragment"
+        android:name="com.example.myapplication.ContactActivity"
         android:label="Kontakt"
-        tools:layout="@layout/fragment_contact" />
+        tools:layout="@layout/activity_contact" />
 
 </navigation>
-
-

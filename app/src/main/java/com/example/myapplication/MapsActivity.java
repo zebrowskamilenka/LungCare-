@@ -1,44 +1,56 @@
 package com.example.myapplication;
 
-import androidx.fragment.app.FragmentActivity;
-
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.myapplication.databinding.ActivityMapsBinding;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.chip.ChipGroup;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity {
+
+    private ImageView ivFloorPlan;
+    private TextView tvCurrentLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        ivFloorPlan = findViewById(R.id.ivFloorPlan);
+        tvCurrentLocation = findViewById(R.id.tvCurrentLocation);
+        ChipGroup chipGroupFloors = findViewById(R.id.chipGroupFloors);
 
-        SupportMapFragment mapFragment =
-                (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        // Obsługa przełączania pięter
+        if (chipGroupFloors != null) {
+            chipGroupFloors.setOnCheckedStateChangeListener((group, checkedIds) -> {
+                if (checkedIds.contains(R.id.chipFloor0)) {
+                    updateFloor("Budynek CMI - Parter");
+                } else if (checkedIds.contains(R.id.chipFloor1)) {
+                    updateFloor("Budynek CMI - I Piętro");
+                } else if (checkedIds.contains(R.id.chipFloor2)) {
+                    updateFloor("Budynek CMI - II Piętro");
+                }
+            });
+        }
 
-        if (mapFragment != null) {
-            mapFragment.getMapAsync(this);
+        // Obsługa kliknięć w punkty (SALA/REJESTRACJA)
+        if (findViewById(R.id.spotReception) != null) {
+            findViewById(R.id.spotReception).setOnClickListener(v -> 
+                Toast.makeText(this, "Rejestracja: Godziny 07:30 - 15:30", Toast.LENGTH_SHORT).show());
+        }
+
+        if (findViewById(R.id.spotElevator) != null) {
+            findViewById(R.id.spotElevator).setOnClickListener(v -> 
+                Toast.makeText(this, "Windy: Dojście do oddziałów płucnych", Toast.LENGTH_SHORT).show());
         }
     }
 
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        // Przykład: ustaw pinezkę (wpisz tu współrzędne UCK, jeśli je masz)
-        LatLng uck = new LatLng(54.36647, 18.62362); // przykładowo: Gdańsk (podmień)
-        googleMap.addMarker(new MarkerOptions().position(uck).title("Uniwersyteckie Centrum Kliniczne"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(uck, 14f));
+    private void updateFloor(String floorName) {
+        tvCurrentLocation.setText(floorName);
+        // Tu możesz dodać zmianę grafiki: ivFloorPlan.setImageResource(R.drawable.twoja_mapa_pietra);
+        Toast.makeText(this, "Zmieniono poziom na: " + floorName, Toast.LENGTH_SHORT).show();
     }
 }
-
-
-

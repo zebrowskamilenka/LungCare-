@@ -1,39 +1,28 @@
 package com.example.myapplication;
 
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.content.Intent;
 import java.util.ArrayList;
 
-public class VideoActivity extends Fragment {
+public class VideoActivity extends AppCompatActivity {
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_education); // Używamy tego samego layoutu co wcześniej
 
-        View root = inflater.inflate(R.layout.fragment_education, container, false);
-
-        RecyclerView rv = root.findViewById(R.id.rvVideos);
-        rv.setLayoutManager(new LinearLayoutManager(requireContext()));
+        RecyclerView rv = findViewById(R.id.rvVideos);
+        rv.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<VideoItem> videos = new ArrayList<>();
         videos.add(new VideoItem(
                 "Codzienna pielęgnacja pacjenta",
-               "Codzienne zasady higieny i opieki po przeszczepie płuc.",
-               "4:27",
-               R.drawable.thumb_placeholder,
+                "Codzienne zasady higieny i opieki po przeszczepie płuc.",
+                "4:27",
+                R.drawable.thumb_placeholder,
                 R.raw.inhalacja
         ));
         videos.add(new VideoItem(
@@ -43,12 +32,12 @@ public class VideoActivity extends Fragment {
                 R.drawable.thumb_placeholder,
                 R.raw.inhalacja
         ));
-       videos.add(new VideoItem(
+        videos.add(new VideoItem(
                 "Przyjmowanie leków immunosupresyjnych",
                 "Jak regularnie przyjmować leki i czego unikać.",
                 "5:04",
                 R.drawable.thumb_placeholder,
-               R.raw.inhalacja
+                R.raw.inhalacja
         ));
         videos.add(new VideoItem(
                 "Higiena i unikanie infekcji",
@@ -60,15 +49,11 @@ public class VideoActivity extends Fragment {
 
         VideoAdapter adapter = new VideoAdapter(videos, this::openPlayer);
         rv.setAdapter(adapter);
-
-
-        return root;
     }
 
     private void openPlayer(VideoItem item) {
-        Intent i = new Intent(requireContext(), VideoPlayerActivity.class);
+        Intent i = new Intent(this, VideoPlayerActivity.class);
         i.putExtra(VideoPlayerActivity.EXTRA_RAW_RES_ID, item.videoRawResId);
         startActivity(i);
-
     }
 }

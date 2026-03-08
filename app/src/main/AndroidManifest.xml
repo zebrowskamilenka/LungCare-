@@ -12,51 +12,47 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+        
+        <!-- Główny ekran startowy -->
         <activity
             android:name=".PanelActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_panel"
-            android:theme="@style/Theme.MyApplication" />
-        <!--
-             TODO: Before you run your application, you need a Google Maps API key.
+            android:theme="@style/Theme.MyApplication.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-             To get one, follow the directions here:
+        <activity android:name=".DiaryActivity" />
 
-                https://developers.google.com/maps/documentation/android-sdk/get-api-key
-
-             Once you have your API key (it starts with "AIza"), define a new property in your
-             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
-             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
-        -->
-        <activity android:name=".DairyFragment" />
+        <activity android:name=".VideoActivity" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+            
         <activity android:name=".MedicationActivity" />
+        
         <activity
             android:name=".MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".ContactActivity" />
 
         <activity
             android:name=".VademecumActivity"
-            android:exported="false"/>
-<activity android:name=".CalendarActivity"/>
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.MyApplication.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".CalendarActivity"/>
+        
+        <activity
+            android:name=".ContactActivity"
+            android:exported="false"/>
+            
         <activity android:name=".MeasurmentsDashboardActivity" />
+        
         <activity android:name=".MedicationDetailsActivity"/>
-<!--        <activity android:name=".CalendarActivity"/>-->
+        
         <activity
             android:name=".MainActivity"
             android:exported="false"

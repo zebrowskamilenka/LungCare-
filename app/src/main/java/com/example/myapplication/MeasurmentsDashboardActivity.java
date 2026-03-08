@@ -71,7 +71,7 @@ public class MeasurmentsDashboardActivity extends AppCompatActivity {
 
         // SpO2: próg alarmowy np. < 92%
         tvSpo2Value.setText(String.format(java.util.Locale.getDefault(), "%.0f%%", spo2));
-        boolean spo2Alarm = spo2 < 92;
+        boolean spo2Alarm =  spo2 < 92;
         setValueColor(tvSpo2Value, spo2Alarm);
         tvSpo2Status.setText(spo2Alarm ? "Niska saturacja" : "W normie");
 

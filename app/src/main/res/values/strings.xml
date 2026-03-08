@@ -58,6 +58,7 @@
     <string name="btn_email">E-MAIL</string>
     <string name="btn_nav">NAWIGUJ</string>
     <string name="btn_call_now">ZADZWOŃ TERAZ</string>
-
+    <string name="pick_date">Wybierz datę wpisu</string>
+    <string name="hint_temp">Np. 36.6</string>
 
 </resources>

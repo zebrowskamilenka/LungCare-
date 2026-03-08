@@ -1,29 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp">
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginBottom="24dp"
+    app:cardCornerRadius="28dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="#1A000000">
 
     <LinearLayout
-        android:padding="14dp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:text="Tytuł"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
 
-        <TextView
-            android:id="@+id/tvDesc"
-            android:text="Opis"
-            android:textSize="13sp"
-            android:layout_marginTop="6dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <ImageView
+                android:id="@+id/ivThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/lungs"
+                android:alpha="0.8" />
+
+            <!-- Gradient nakładany na obraz -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_bg"
+                android:alpha="0.3" />
+
+            <!-- Nowoczesny przycisk Play (bez trójkąta w kwadracie) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="32dp"
+                app:cardBackgroundColor="#CCFFFFFF"
+                app:cardElevation="8dp">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="4dp"
+                    android:src="@android:drawable/ic_media_play"
+                    app:tint="#2563EB" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:background="@drawable/bg_neu_card"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="5:00"
+                android:textColor="#0F172A"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tytuł filmu"
+                android:textColor="#0F172A"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Opis zawartości edukacyjnej dla pacjenta."
+                android:textColor="#64748B"
+                android:textSize="14sp"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+        </LinearLayout>
     </LinearLayout>
-
 </com.google.android.material.card.MaterialCardView>

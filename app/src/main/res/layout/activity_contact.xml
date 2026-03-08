@@ -2,31 +2,25 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_bg"
-    android:padding="16dp"
-    android:fitsSystemWindows="true"
-    tools:context=".ContactActivity">
+    android:background="@drawable/gradient_bg">
 
     <ImageView
         android:id="@+id/lungsImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:adjustViewBounds="true"
+        android:alpha="0.2"
         android:contentDescription="@string/lungs"
-        android:scaleType="fitCenter"
-        android:alpha="0.10"
+        android:scaleType="centerInside"
         android:src="@drawable/lungs" />
 
-    <ScrollView
-        android:layout_width="0dp"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:scrollbars="none"
+        android:fillViewport="true"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -34,17 +28,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="24dp">
+            android:padding="20dp">
 
-            <com.google.android.material.card.MaterialCardView
+            <TextView
+                android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/card_bg"
-                app:strokeColor="@color/card_stroke"
-                app:strokeWidth="1dp"
-                app:cardCornerRadius="22dp"
-                app:cardElevation="2dp"
-                app:cardUseCompatPadding="true">
+                android:text="Kontakt"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="28dp"
+                android:text="Wsparcie medyczne LungCare+"
+                android:textColor="#DCE7F5"
+                android:textSize="15sp" />
+
+            <!-- KARTA 1: UCK -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardUck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -55,36 +67,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/contact_uck"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/field_text"/>
+                        android:text="Ośrodek Transplantacyjny UCK"
+                        android:textColor="#0B1B2B"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="@string/contact_uck_hours"
-                        android:textSize="14sp"
-                        android:textColor="@color/field_hint"/>
+                        android:layout_marginTop="4dp"
+                        android:text="Dyżur stacjonarny: 08:00–15:00"
+                        android:textColor="#64748B"
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="20dp"
                         android:orientation="horizontal">
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnUckCall"
+                            style="@style/Widget.Material3.Button.TonalButton"
                             android:layout_width="0dp"
                             android:layout_height="54dp"
                             android:layout_weight="1"
-                            android:text="@string/btn_call"
-                            android:textSize="13sp"
-                            android:textAllCaps="false"
+                            android:text="Zadzwoń"
                             android:textStyle="bold"
-                            app:backgroundTint="@color/btn_start"
-                            app:cornerRadius="14dp"/>
+                            app:cornerRadius="16dp"
+                            app:icon="@drawable/ic_phone"
+                            app:iconSize="20dp" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnUckMail"
@@ -93,43 +105,31 @@
                             android:layout_height="54dp"
                             android:layout_marginStart="8dp"
                             android:layout_weight="1"
-                            android:text="@string/btn_email"
-                            android:textSize="13sp"
-                            android:textAllCaps="false"
-                            android:textStyle="bold"
-                            android:textColor="@color/field_text"
-                            app:strokeColor="@color/btn_start"
-                            app:strokeWidth="2dp"
-                            app:cornerRadius="14dp"/>
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnUckMap"
-                            style="@style/Widget.Material3.Button.OutlinedButton"
-                            android:layout_width="0dp"
-                            android:layout_height="54dp"
-                            android:layout_marginStart="8dp"
-                            android:layout_weight="1"
-                            android:text="@string/btn_nav"
-                            android:textSize="13sp"
-                            android:textAllCaps="false"
-                            android:textStyle="bold"
-                            android:textColor="@color/field_text"
-                            app:strokeColor="@color/btn_start"
-                            app:strokeWidth="2dp"
-                            app:cornerRadius="14dp"/>
+                            android:text="E-mail"
+                            app:cornerRadius="16dp" />
                     </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUckMap"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Nawiguj do UCK"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/ic_map_pin"
+                        app:iconSize="20dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- KARTA 2: Psycholog -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPsych"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/card_bg"
-                app:strokeColor="@color/card_stroke"
-                app:strokeWidth="1dp"
-                app:cardCornerRadius="22dp"
-                app:cardElevation="2dp"
-                app:cardUseCompatPadding="true">
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -140,184 +140,122 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/contact_coord"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/field_text"/>
+                        android:text="Wsparcie psychologiczne"
+                        android:textColor="#0B1B2B"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="@string/contact_coord_desc"
-                        android:textSize="14sp"
-                        android:textColor="@color/field_hint"/>
+                        android:layout_marginTop="4dp"
+                        android:text="Pomoc psychologa klinicznego"
+                        android:textColor="#64748B"
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:orientation="horizontal">
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnCoordCall"
-                            android:layout_width="0dp"
-                            android:layout_height="54dp"
-                            android:layout_weight="1"
-                            android:text="@string/btn_call"
-                            android:textSize="14sp"
-                            android:textAllCaps="false"
-                            android:textStyle="bold"
-                            app:backgroundTint="@color/btn_start"
-                            app:cornerRadius="14dp"/>
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnCoordMail"
-                            style="@style/Widget.Material3.Button.OutlinedButton"
-                            android:layout_width="0dp"
-                            android:layout_height="54dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_weight="1"
-                            android:text="@string/btn_email"
-                            android:textSize="14sp"
-                            android:textAllCaps="false"
-                            android:textStyle="bold"
-                            android:textColor="@color/field_text"
-                            app:strokeColor="@color/btn_start"
-                            app:strokeWidth="2dp"
-                            app:cornerRadius="14dp"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/card_bg"
-                app:strokeColor="@color/card_stroke"
-                app:strokeWidth="1dp"
-                app:cardCornerRadius="22dp"
-                app:cardElevation="2dp"
-                app:cardUseCompatPadding="true">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/contact_psych"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/field_text"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="@string/contact_psych_desc"
-                        android:textSize="14sp"
-                        android:textColor="@color/field_hint"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="20dp"
                         android:orientation="horizontal">
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnPsychCall"
+                            style="@style/Widget.Material3.Button.TonalButton"
                             android:layout_width="0dp"
                             android:layout_height="54dp"
                             android:layout_weight="1"
-                            android:text="@string/btn_call"
-                            android:textSize="14sp"
-                            android:textAllCaps="false"
+                            android:text="Zadzwoń"
                             android:textStyle="bold"
-                            app:backgroundTint="@color/btn_start"
-                            app:cornerRadius="14dp"/>
+                            app:cornerRadius="16dp"
+                            app:icon="@drawable/ic_phone"
+                            app:iconSize="20dp" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnPsychMail"
                             style="@style/Widget.Material3.Button.OutlinedButton"
                             android:layout_width="0dp"
                             android:layout_height="54dp"
-                            android:layout_marginStart="10dp"
+                            android:layout_marginStart="8dp"
                             android:layout_weight="1"
-                            android:text="@string/btn_email"
-                            android:textSize="14sp"
-                            android:textAllCaps="false"
-                            android:textStyle="bold"
-                            android:textColor="@color/field_text"
-                            app:strokeColor="@color/btn_start"
-                            app:strokeWidth="2dp"
-                            app:cornerRadius="14dp"/>
+                            android:text="E-mail"
+                            app:cornerRadius="16dp" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- KARTA 3: Dyżur Pilny -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardUrgent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/card_bg"
-                app:strokeColor="@color/card_stroke"
-                app:strokeWidth="1dp"
-                app:cardCornerRadius="22dp"
-                app:cardElevation="4dp"
-                app:cardUseCompatPadding="true">
+                android:layout_marginBottom="40dp"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="8dp"
+                app:strokeColor="#FF5252"
+                app:strokeWidth="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="24dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/contact_urgent"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#DC3545"/>
+                        android:text="PILNY KONTAKT (24/7)"
+                        android:textColor="#FF5252"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="@string/contact_urgent_desc"
-                        android:textSize="14sp"
-                        android:textColor="@color/field_hint"/>
+                        android:text="Tylko w sytuacjach nagłego pogorszenia stanu zdrowia."
+                        android:textColor="#64748B"
+                        android:textSize="14sp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnUrgentCall"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/btn_call_now"
-                        android:textSize="16sp"
-                        android:textAllCaps="false"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Połącz z dyżurem"
+                        android:textSize="18sp"
                         android:textStyle="bold"
-                        app:backgroundTint="#DC3545"
-                        app:cornerRadius="14dp"/>
+                        app:backgroundTint="#FF5252"
+                        app:cornerRadius="32dp"
+                        app:icon="@drawable/ic_phone"
+                        app:iconGravity="textStart"
+                        app:iconPadding="12dp"
+                        app:iconSize="24dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="0dp"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottom_nav_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorSurface"
-        app:menu="@menu/bottom_nav_menu"
-        app:labelVisibilityMode="labeled"
-        app:itemIconSize="26dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:cardCornerRadius="24dp"
+        app:cardElevation="12dp"
+        android:layout_marginBottom="-20dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/white"
+            app:itemIconSize="24dp"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu" />
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

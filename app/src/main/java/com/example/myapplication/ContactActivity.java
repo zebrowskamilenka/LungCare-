@@ -11,17 +11,17 @@ import com.google.android.material.button.MaterialButton;
 
 public class ContactActivity extends AppCompatActivity {
 
-    private static final String UCK_PHONE = "tel:+48500100200";
+    private static final String UCK_PHONE = "tel:+48585844340";
     private static final String UCK_EMAIL = "mailto:kontakt@uck.gdansk.pl";
     private static final String UCK_MAP = "geo:0,0?q=UCK+Gdańsk";
 
-    private static final String COORD_PHONE = "tel:+48500100300";
+    private static final String COORD_PHONE = "tel:+48800702222";
     private static final String COORD_EMAIL = "mailto:koordynator@uck.gdansk.pl";
 
-    private static final String PSYCH_PHONE = "tel:+48500100400";
-    private static final String PSYCH_EMAIL = "mailto:psycholog@uck.gdansk.pl";
+    private static final String PSYCH_PHONE = "tel:+48800702222";
+    private static final String PSYCH_EMAIL = "mailto:sekretariat@uck.gda.pl";
 
-    private static final String URGENT_PHONE = "tel:+48500100999";
+    private static final String URGENT_PHONE = "tel:+48587270505";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +75,7 @@ public class ContactActivity extends AppCompatActivity {
         btnUckMail.setOnClickListener(v -> openUri(UCK_EMAIL));
         btnUckMap.setOnClickListener(v -> openUri(UCK_MAP));
 
-        // Koordynator
-        findViewById(R.id.btnCoordCall).setOnClickListener(v -> openUri(COORD_PHONE));
-        findViewById(R.id.btnCoordMail).setOnClickListener(v -> openUri(COORD_EMAIL));
+
 
         // Psycholog
         findViewById(R.id.btnPsychCall).setOnClickListener(v -> openUri(PSYCH_PHONE));

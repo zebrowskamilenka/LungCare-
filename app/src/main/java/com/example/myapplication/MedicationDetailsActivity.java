@@ -1,8 +1,9 @@
 package com.example.myapplication;
+
 import android.os.Bundle;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.button.MaterialButton;
 
 public class MedicationDetailsActivity extends AppCompatActivity {
 
@@ -12,22 +13,23 @@ public class MedicationDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_medications_details);
 
         TextView tvName = findViewById(R.id.tvMedName);
+        TextView tvIngredients = findViewById(R.id.tvIngredients);
         TextView tvDose = findViewById(R.id.tvMedDose);
-        TextView tvTime = findViewById(R.id.tvMedTime);
         TextView tvInfo = findViewById(R.id.tvMedInfo);
+        MaterialButton btnBack = findViewById(R.id.btnBack);
 
-        String name = getIntent().getStringExtra("name");
-        String dose = getIntent().getStringExtra("dose");
-        String time = getIntent().getStringExtra("time");
-        String info = getIntent().getStringExtra("info");
+        // Odbieramy obiekt leku z Intenta
+        MedicationActivity.Medication med = (MedicationActivity.Medication) getIntent().getSerializableExtra("med_object");
 
-        if (name != null) tvName.setText(name);
-        if (dose != null) tvDose.setText("Dawka: " + dose);
-        if (time != null) tvTime.setText("Godzina: " + time);
-
-        if (info == null || info.trim().isEmpty()) {
-            info = "Brak dodatkowych informacji.";
+        if (med != null) {
+            tvName.setText(med.name);
+            tvIngredients.setText(med.ingredients);
+            tvDose.setText(med.dosage);
+            tvInfo.setText(med.notes);
         }
-        tvInfo.setText(info);
+
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
     }
 }

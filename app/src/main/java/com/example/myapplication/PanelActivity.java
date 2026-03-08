@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,60 +11,70 @@ import com.google.android.material.card.MaterialCardView;
 
 public class PanelActivity extends AppCompatActivity {
 
-    private MaterialCardView cardCalendar, cardDzienniczek, cardVideo, cardMapa;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu_activity);
-        MaterialCardView cardVideos = findViewById(R.id.cardVideo);
+        
+        try {
+            setContentView(R.layout.menu_activity);
+        } catch (Exception e) {
+            Toast.makeText(this, "Błąd layoutu: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            return;
+        }
 
-        cardVideos.setOnClickListener(v -> {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.cardVideo, new VideoActivity())
-                    .addToBackStack(null)
-                    .commit();
-        });
-        // KAFELKI, KTÓRE NAPRAWDĘ ISTNIEJĄ W menu_activity.xml
-        cardCalendar    = findViewById(R.id.cardCalendar);
-        cardDzienniczek = findViewById(R.id.cardDzienniczek);
-        //cardVideo       = findViewById(R.id.cardVideo);
-        cardMapa        = findViewById(R.id.cardMapa);
+        setupTiles();
+        setupBottomNav();
+    }
 
-        cardCalendar.setOnClickListener(v ->
-                startActivity(new Intent(this, CalendarActivity.class)));
+    private void setupTiles() {
+        MaterialCardView cardToday = findViewById(R.id.cardToday);
+        MaterialCardView cardCalendar = findViewById(R.id.cardCalendar);
+        MaterialCardView cardDzienniczek = findViewById(R.id.cardDzienniczek);
+        MaterialCardView cardVideo = findViewById(R.id.cardVideo);
+        MaterialCardView cardMapa = findViewById(R.id.cardMapa);
 
-        cardDzienniczek.setOnClickListener(v ->
-                startActivity(new Intent(this, DairyFragment.class)));
+        // Teraz cała karta "Dzisiaj" prowadzi do kalendarza
+        if (cardToday != null) {
+            cardToday.setOnClickListener(v -> safeStart(CalendarActivity.class));
+        }
 
-       // cardVideo.setOnClickListener(v ->
-               // startActivity(new Intent(this, Vid.class)));
+        if (cardCalendar != null) {
+            cardCalendar.setOnClickListener(v -> safeStart(CalendarActivity.class));
+        }
 
-        cardMapa.setOnClickListener(v ->
-                startActivity(new Intent(this, MapsActivity.class)));
+        if (cardDzienniczek != null) {
+            cardDzienniczek.setOnClickListener(v -> safeStart(DiaryActivity.class));
+        }
+        
+        if (cardVideo != null) {
+            cardVideo.setOnClickListener(v -> safeStart(VideoActivity.class));
+        }
+        
+        if (cardMapa != null) {
+            cardMapa.setOnClickListener(v -> safeStart(MapsActivity.class));
+        }
+    }
 
+    private void setupBottomNav() {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
-        bottomNav.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
+        if (bottomNav != null) {
+            bottomNav.setOnItemSelectedListener(item -> {
+                int id = item.getItemId();
+                if (id == R.id.nav_start) return true;
+                if (id == R.id.nav_leki) safeStart(MedicationActivity.class);
+                if (id == R.id.nav_measures) safeStart(MeasurmentsDashboardActivity.class);
+                if (id == R.id.nav_vademecum) safeStart(VademecumActivity.class);
+                if (id == R.id.nav_contact) safeStart(ContactActivity.class);
+                return true;
+            });
+        }
+    }
 
-            if (id == R.id.nav_start) {
-                return true;
-            } else if (id == R.id.nav_leki) {
-                startActivity(new Intent(this, MedicationActivity.class));
-                return true;
-            } else if (id == R.id.nav_measures) {
-                startActivity(new Intent(this, MeasurmentsDashboardActivity.class));
-                return true;
-            } else if (id == R.id.nav_vademecum) {
-                startActivity(new Intent(this, VademecumActivity.class));
-                return true;
-            } else if (id == R.id.nav_contact) {
-                startActivity(new Intent(this, ContactActivity.class));
-                return true;
-            }
-
-            return false;
-        });
+    private void safeStart(Class<?> activityClass) {
+        try {
+            startActivity(new Intent(this, activityClass));
+        } catch (Exception e) {
+            Toast.makeText(this, "Nie można otworzyć: " + activityClass.getSimpleName(), Toast.LENGTH_SHORT).show();
+        }
     }
 }
