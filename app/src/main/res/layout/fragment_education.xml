@@ -38,7 +38,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Edukacja"
+                    android:text="Filmy"
                     android:textColor="#FFFFFF"
                     android:textSize="32sp"
                     android:textStyle="bold" />
@@ -55,14 +55,7 @@
                     android:contentDescription="Powrót" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="24dp"
-                android:text="Instrukcje pielęgnacji i leczenia"
-                android:textColor="#DCE7F5"
-                android:textSize="15sp" />
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvVideos"

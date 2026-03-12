@@ -13,7 +13,6 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         
-        <!-- Główny ekran startowy -->
         <activity
             android:name=".PanelActivity"
             android:exported="true"
@@ -25,14 +24,15 @@
             </intent-filter>
         </activity>
 
+        <!-- Deklaracje aktywności -->
         <activity android:name=".DiaryActivity" />
-
         <activity android:name=".VideoActivity" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-            
+        <activity android:name=".VideoPlayerActivity" />
         <activity android:name=".MedicationActivity" />
+        <activity android:name=".CalendarActivity"/>
+        <activity android:name=".ContactActivity" />
+        <activity android:name=".MeasurmentsDashboardActivity" />
+        <activity android:name=".MedicationDetailsActivity"/>
         
         <activity
             android:name=".MapsActivity"
@@ -42,21 +42,16 @@
         <activity
             android:name=".VademecumActivity"
             android:exported="false" />
-
-        <activity android:name=".CalendarActivity"/>
-        
-        <activity
-            android:name=".ContactActivity"
-            android:exported="false"/>
             
-        <activity android:name=".MeasurmentsDashboardActivity" />
-        
-        <activity android:name=".MedicationDetailsActivity"/>
-        
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+            
     </application>
 
 </manifest>

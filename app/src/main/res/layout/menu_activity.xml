@@ -7,7 +7,7 @@
     android:background="@drawable/gradient_bg"
     android:id="@+id/container">
 
-    <!-- Subtelne tło -->
+
     <ImageView
         android:id="@+id/lungsImage"
         android:layout_width="match_parent"
@@ -165,7 +165,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:text="Plan"
+                            android:text="Kalendarz"
                             android:textStyle="bold"
                             android:textSize="15sp"
                             android:textColor="#0F172A" />

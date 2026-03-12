@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
 import java.util.ArrayList;
 
 public class VideoActivity extends AppCompatActivity {
@@ -12,43 +13,50 @@ public class VideoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_education); // Używamy tego samego layoutu co wcześniej
+        setContentView(R.layout.fragment_education);
+
+        // Obsługa przycisku powrotu do panelu głównego
+        View btnBack = findViewById(R.id.btnBackToPanel);
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
 
         RecyclerView rv = findViewById(R.id.rvVideos);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+        if (rv != null) {
+            rv.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<VideoItem> videos = new ArrayList<>();
-        videos.add(new VideoItem(
-                "Codzienna pielęgnacja pacjenta",
-                "Codzienne zasady higieny i opieki po przeszczepie płuc.",
-                "4:27",
-                R.drawable.thumb_placeholder,
-                R.raw.inhalacja
-        ));
-        videos.add(new VideoItem(
-                "Jak poprawnie stosować inhalator?",
-                "Instrukcja stosowania inhalatora ze spejserem.",
-                "3:12",
-                R.drawable.thumb_placeholder,
-                R.raw.inhalacja
-        ));
-        videos.add(new VideoItem(
-                "Przyjmowanie leków immunosupresyjnych",
-                "Jak regularnie przyjmować leki i czego unikać.",
-                "5:04",
-                R.drawable.thumb_placeholder,
-                R.raw.inhalacja
-        ));
-        videos.add(new VideoItem(
-                "Higiena i unikanie infekcji",
-                "Jak ograniczać ryzyko infekcji po przeszczepie.",
-                "3:38",
-                R.drawable.thumb_placeholder,
-                R.raw.inhalacja
-        ));
+            ArrayList<VideoItem> videos = new ArrayList<>();
+            
+            // Film 1: Wprowadzenie
+            videos.add(new VideoItem(
+                    "Pierwsze kroki w LungCare+",
+                    "Zapoznanie z aplikacją i podstawowe zasady opieki po przeszczepie.",
+                    "3:15",
+                    R.drawable.filmik1,
+                    R.raw.film_instruktazowy1
+            ));
 
-        VideoAdapter adapter = new VideoAdapter(videos, this::openPlayer);
-        rv.setAdapter(adapter);
+            // Film 2: Pielęgnacja
+            videos.add(new VideoItem(
+                    "Instruktaż pielęgnacji",
+                    "Szczegółowy film dotyczący codziennej rutyny i higieny osobistej.",
+                    "4:30",
+                    R.drawable.filmik2,
+                    R.raw.film_instruktazowy2
+            ));
+
+            // Film 3: Rehabilitacja (Dodany)
+            videos.add(new VideoItem(
+                    "Ćwiczenia oddechowe",
+                    "Zestaw bezpiecznych ćwiczeń wspomagających wydolność płuc.",
+                    "6:10",
+                    R.drawable.filmik3,
+                    R.raw.film_instruktazowy3
+            ));
+
+            VideoAdapter adapter = new VideoAdapter(videos, this::openPlayer);
+            rv.setAdapter(adapter);
+        }
     }
 
     private void openPlayer(VideoItem item) {

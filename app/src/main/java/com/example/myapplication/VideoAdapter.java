@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButton;
+
 import java.util.List;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VH> {
@@ -28,7 +30,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VH> {
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_video, parent, false);
+        // Zmieniono z R.layout.item_video na R.layout.video_list_item
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.video_list_item, parent, false);
         return new VH(v);
     }
 
@@ -41,7 +44,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VH> {
         h.tvDuration.setText(item.duration);
         h.ivThumb.setImageResource(item.thumbResId);
 
+        // Kliknięcie w całą kartę otwiera film
         h.itemView.setOnClickListener(v -> listener.onClick(item));
+        
+        // Kliknięcie w przycisk "Oglądaj" również otwiera film
+        if (h.btnWatch != null) {
+            h.btnWatch.setOnClickListener(v -> listener.onClick(item));
+        }
     }
 
     @Override
@@ -52,13 +61,15 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VH> {
     static class VH extends RecyclerView.ViewHolder {
         ImageView ivThumb;
         TextView tvTitle, tvDesc, tvDuration;
+        MaterialButton btnWatch;
 
         VH(@NonNull View itemView) {
             super(itemView);
-            ivThumb = itemView.findViewById(R.id.ivThumb);
+            ivThumb = itemView.findViewById(R.id.ivThumbnail); // Poprawione ID
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvDesc = itemView.findViewById(R.id.tvDesc);
             tvDuration = itemView.findViewById(R.id.tvDuration);
+            btnWatch = itemView.findViewById(R.id.btnWatch); // Dodane ID przycisku
         }
     }
 }

@@ -84,6 +84,12 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
     private void setupButtons() {
+        // Obsługa przycisku powrotu
+        View btnBack = findViewById(R.id.btnBack);
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
+
         findViewById(R.id.btnToday).setOnClickListener(v -> {
             CalendarDay t = CalendarDay.today();
             calendarView.setCurrentDate(t);

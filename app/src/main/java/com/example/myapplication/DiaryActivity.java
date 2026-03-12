@@ -28,14 +28,12 @@ import java.util.Locale;
 
 public class DiaryActivity extends AppCompatActivity {
 
-    // prefs
     private SharedPreferences prefs;
     private static final String PREFS_NAME = "dairy";
     private static final String KEY_ENTRIES = "entries_json";
     private static final String KEY_BASELINE_FEV1 = "baseline_fev1";
     private static final float DEFAULT_BASELINE_FEV1 = 2.5f;
 
-    // UI
     private TextView tvDate;
     private TextInputEditText etFev1, etSpo2, etTemp, etHr, etOtherSymptoms, etMeds;
     private ChipGroup chipGroupMood, chipGroupSymptoms;
@@ -54,22 +52,23 @@ public class DiaryActivity extends AppCompatActivity {
         initDefaultDate();
         initDatePicker();
         initSave();
+
+        // OBSŁUGA PRZYCISKU POWROTU
+        View btnBack = findViewById(R.id.btnBack);
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
     }
 
     private void bindViews() {
         tvDate = findViewById(R.id.tvDate);
-
         etFev1 = findViewById(R.id.etFev1);
         etSpo2 = findViewById(R.id.etSpo2);
         etTemp = findViewById(R.id.etTemp);
         etHr   = findViewById(R.id.etHr);
-
         chipGroupMood = findViewById(R.id.chipGroupMood);
         chipGroupSymptoms = findViewById(R.id.chipGroupSymptoms);
-
         etOtherSymptoms = findViewById(R.id.etOtherSymptoms);
-        // etMeds = findViewById(R.id.etMeds); // Jeśli masz to pole w layout
-
         btnSave = findViewById(R.id.btnSave);
     }
 
@@ -97,20 +96,22 @@ public class DiaryActivity extends AppCompatActivity {
     }
 
     private void initSave() {
-        btnSave.setOnClickListener(v -> {
-            JSONObject entry = collectEntryAsJson();
-            if (entry == null) return;
+        if (btnSave != null) {
+            btnSave.setOnClickListener(v -> {
+                JSONObject entry = collectEntryAsJson();
+                if (entry == null) return;
 
-            ClinicalFlags flags = evaluateFlags(entry);
+                ClinicalFlags flags = evaluateFlags(entry);
 
-            if (!appendEntry(entry, flags)) {
-                toast("Nie udało się zapisać wpisu.");
-                return;
-            }
+                if (!appendEntry(entry, flags)) {
+                    toast("Nie udało się zapisać wpisu.");
+                    return;
+                }
 
-            showResultDialog(flags, entry);
-            clearInputs();
-        });
+                showResultDialog(flags, entry);
+                clearInputs();
+            });
+        }
     }
 
     @Nullable
@@ -192,7 +193,6 @@ public class DiaryActivity extends AppCompatActivity {
 
     private ClinicalFlags evaluateFlags(JSONObject entry) {
         ClinicalFlags f = new ClinicalFlags();
-
         Float fev1 = jsonFloat(entry, "fev1");
         Integer spo2 = jsonInt(entry, "spo2");
         Float temp = jsonFloat(entry, "temp");

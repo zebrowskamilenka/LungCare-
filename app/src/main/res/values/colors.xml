@@ -1,37 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Główne Kolory (Jasne) -->
+    <color name="primary_light">#2563EB</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="background_light">#F8FAFC</color>
+    <color name="text_primary_light">#0F172A</color>
+    <color name="text_secondary_light">#64748B</color>
 
+    <!-- Główne Kolory (Ciemne) -->
+    <color name="primary_dark">#60A5FA</color>
+    <color name="surface_dark">#1E293B</color>
+    <color name="background_dark">#0F172A</color>
+    <color name="text_primary_dark">#F8FAFC</color>
+    <color name="text_secondary_dark">#94A3B8</color>
 
-        <!-- tło -->
-        <color name="bg_start">#EAF2FA</color>
-        <color name="bg_end">#C5D9ED</color>
-
-        <!-- pola -->
-        <color name="field_bg">#FFFFFF</color>
-        <color name="field_text">#2C3E57</color>
-        <color name="field_hint">#6C7F99</color>
-
-        <!-- przycisk -->
-        <color name="btn_start">#3F6FAF</color>
-        <color name="btn_end">#2E5C96</color>
-        <color name="btn_text">#FFFFFF</color>
-
-        <!-- checkbox -->
-        <color name="check_text">#2C3E57</color>
-        <color name="check_stroke">#2E5C96</color>
-
-    <color name="card_bg">#FFFFFF</color>
-    <color name="card_stroke">#E6EEF8</color>
-    <color name="divider">#8FB3D9</color>
-
-    <color name="header_bg_transparent">#CC0E1A33</color>
-    <color name="card_bg_transparent">#E6111D33</color>
-
+    <!-- Akcenty i Funkcjonalne -->
+    <color name="error_red">#EF4444</color>
+    <color name="success_green">#16A34A</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent_white">#80FFFFFF</color>
 </resources>
