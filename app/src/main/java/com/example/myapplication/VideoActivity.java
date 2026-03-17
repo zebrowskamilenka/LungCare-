@@ -32,7 +32,7 @@ public class VideoActivity extends AppCompatActivity {
                     "Pierwsze kroki w LungCare+",
                     "Zapoznanie z aplikacją i podstawowe zasady opieki po przeszczepie.",
                     "3:15",
-                    R.drawable.filmik1,
+                    R.drawable.thumb_placeholder,
                     R.raw.film_instruktazowy1
             ));
 
@@ -41,7 +41,7 @@ public class VideoActivity extends AppCompatActivity {
                     "Instruktaż pielęgnacji",
                     "Szczegółowy film dotyczący codziennej rutyny i higieny osobistej.",
                     "4:30",
-                    R.drawable.filmik2,
+                    R.drawable.thumb_placeholder,
                     R.raw.film_instruktazowy2
             ));
 
@@ -50,7 +50,7 @@ public class VideoActivity extends AppCompatActivity {
                     "Ćwiczenia oddechowe",
                     "Zestaw bezpiecznych ćwiczeń wspomagających wydolność płuc.",
                     "6:10",
-                    R.drawable.filmik3,
+                    R.drawable.thumb_placeholder,
                     R.raw.film_instruktazowy3
             ));
 

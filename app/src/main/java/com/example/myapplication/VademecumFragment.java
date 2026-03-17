@@ -14,13 +14,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class VademecumFragment extends AppCompatActivity {
 
     public VademecumFragment() {
-        // wymagany pusty konstruktor
+
     }
 
-//    @Override
-//    public View onCreateView(@NonNull LayoutInflater inflater,
-//                             ViewGroup container,
-//                             Bundle savedInstanceState) {
+    //  public View onCreateView(@NonNull LayoutInflater inflater,
+               //     ViewGroup container,
+               //       Bundle savedInstanceState) {
 //
 //        View view = inflater.inflate(R.layout.fragment_vademecum, container, false);
 

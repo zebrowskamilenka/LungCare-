@@ -53,7 +53,6 @@ public class DiaryActivity extends AppCompatActivity {
         initDatePicker();
         initSave();
 
-        // OBSŁUGA PRZYCISKU POWROTU
         View btnBack = findViewById(R.id.btnBack);
         if (btnBack != null) {
             btnBack.setOnClickListener(v -> finish());
@@ -78,7 +77,9 @@ public class DiaryActivity extends AppCompatActivity {
     }
 
     private void initDatePicker() {
-        tvDate.setOnClickListener(v -> {
+        // Kliknięcie w kartę lub tekst daty otwiera kalendarz
+        View dateContainer = (View) tvDate.getParent();
+        View.OnClickListener listener = v -> {
             MaterialDatePicker<Long> picker = MaterialDatePicker.Builder.datePicker()
                     .setTitleText("Wybierz datę")
                     .setSelection(selectedDateUtcMillis)
@@ -87,12 +88,21 @@ public class DiaryActivity extends AppCompatActivity {
             picker.addOnPositiveButtonClickListener(selection -> {
                 if (selection != null) {
                     selectedDateUtcMillis = selection;
-                    tvDate.setText(formatDatePL(selection));
+                    String formattedDate = formatDatePL(selection);
+                    tvDate.setText(formattedDate);
+                    // Wymuszenie odświeżenia UI
+                    tvDate.requestLayout();
+                    Toast.makeText(this, "Wybrano: " + formattedDate, Toast.LENGTH_SHORT).show();
                 }
             });
 
             picker.show(getSupportFragmentManager(), "DATE_PICKER");
-        });
+        };
+
+        tvDate.setOnClickListener(listener);
+        if (dateContainer != null) {
+            dateContainer.setOnClickListener(listener);
+        }
     }
 
     private void initSave() {

@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
-        
+
+        <!-- EKRAN LOGOWANIA (STARTOWY) -->
         <activity
-            android:name=".PanelActivity"
+            android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/title_activity_panel"
             android:theme="@style/Theme.MyApplication.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,15 +24,22 @@
             </intent-filter>
         </activity>
 
-        <!-- Deklaracje aktywności -->
-        <activity android:name=".DiaryActivity" />
-        <activity android:name=".VideoActivity" />
-        <activity android:name=".VideoPlayerActivity" />
-        <activity android:name=".MedicationActivity" />
-        <activity android:name=".CalendarActivity"/>
-        <activity android:name=".ContactActivity" />
-        <activity android:name=".MeasurmentsDashboardActivity" />
-        <activity android:name=".MedicationDetailsActivity"/>
+        <!-- PANEL GŁÓWNY -->
+        <activity
+            android:name=".PanelActivity"
+            android:exported="false"
+            android:label="@string/title_activity_panel"
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
+
+        <!-- POZOSTAŁE AKTYWNOŚCI -->
+        <activity android:name=".DiaryActivity" android:exported="false" />
+        <activity android:name=".VideoActivity" android:exported="false" />
+        <activity android:name=".VideoPlayerActivity" android:exported="false" />
+        <activity android:name=".MedicationActivity" android:exported="false" />
+        <activity android:name=".CalendarActivity" android:exported="false" />
+        <activity android:name=".ContactActivity" android:exported="false" />
+        <activity android:name=".MeasurmentsDashboardActivity" android:exported="false" />
+        <activity android:name=".MedicationDetailsActivity" android:exported="false" />
         
         <activity
             android:name=".MapsActivity"
@@ -42,11 +49,6 @@
         <activity
             android:name=".VademecumActivity"
             android:exported="false" />
-            
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:theme="@style/Theme.MyApplication.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

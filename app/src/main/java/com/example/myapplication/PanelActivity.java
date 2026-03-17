@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,13 @@ public class PanelActivity extends AppCompatActivity {
             return;
         }
 
+        // POBIERANIE LOGINU I WYŚWIETLENIE GO W POWITANIU
+        String userLogin = getIntent().getStringExtra("USER_LOGIN");
+        TextView tvWelcome = findViewById(R.id.tvWelcome);
+        if (tvWelcome != null && userLogin != null && !userLogin.isEmpty()) {
+            tvWelcome.setText("Witaj, " + userLogin + "!");
+        }
+
         setupTiles();
         setupBottomNav();
     }
@@ -33,23 +41,18 @@ public class PanelActivity extends AppCompatActivity {
         MaterialCardView cardVideo = findViewById(R.id.cardVideo);
         MaterialCardView cardMapa = findViewById(R.id.cardMapa);
 
-        // Teraz cała karta "Dzisiaj" prowadzi do kalendarza
         if (cardToday != null) {
             cardToday.setOnClickListener(v -> safeStart(CalendarActivity.class));
         }
-
         if (cardCalendar != null) {
             cardCalendar.setOnClickListener(v -> safeStart(CalendarActivity.class));
         }
-
         if (cardDzienniczek != null) {
             cardDzienniczek.setOnClickListener(v -> safeStart(DiaryActivity.class));
         }
-        
         if (cardVideo != null) {
             cardVideo.setOnClickListener(v -> safeStart(VideoActivity.class));
         }
-        
         if (cardMapa != null) {
             cardMapa.setOnClickListener(v -> safeStart(MapsActivity.class));
         }

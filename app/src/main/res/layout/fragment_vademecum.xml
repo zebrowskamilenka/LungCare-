@@ -37,14 +37,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
+            <!-- Karta: Leki -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="4dp"
-                app:cardBackgroundColor="@color/card_bg">
+                app:cardBackgroundColor="?attr/colorSurface">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -56,7 +56,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/vademecum_meds_title"
-                        android:textColor="@color/field_text"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -66,18 +66,19 @@
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="6dp"
                         android:text="@string/vademecum_meds_desc"
-                        android:textColor="@color/field_hint"
+                        android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="18sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Karta: Alarmy -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="4dp"
-                app:cardBackgroundColor="@color/card_bg">
+                app:cardBackgroundColor="?attr/colorSurface">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -89,7 +90,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/vademecum_alarm_title"
-                        android:textColor="@color/field_text"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -99,18 +100,19 @@
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="6dp"
                         android:text="@string/vademecum_alarm_desc"
-                        android:textColor="@color/field_hint"
+                        android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="18sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Karta: Higiena -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="4dp"
-                app:cardBackgroundColor="@color/card_bg">
+                app:cardBackgroundColor="?attr/colorSurface">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -122,7 +124,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/vademecum_daily_title"
-                        android:textColor="@color/field_text"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -132,11 +134,12 @@
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="6dp"
                         android:text="@string/vademecum_daily_desc"
-                        android:textColor="@color/field_hint"
+                        android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="18sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Karta: Kontakt -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,7 +147,7 @@
                 android:layout_marginBottom="24dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="4dp"
-                app:cardBackgroundColor="@color/card_bg">
+                app:cardBackgroundColor="?attr/colorSurface">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -156,7 +159,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/vademecum_contact_title"
-                        android:textColor="@color/field_text"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -166,18 +169,19 @@
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="6dp"
                         android:text="@string/vademecum_contact_desc"
-                        android:textColor="@color/field_hint"
+                        android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="18sp" />
 
                     <Button
+                        android:id="@+id/btnCall112"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
                         android:text="@string/call_112"
-                        android:textColor="@color/btn_text"
+                        android:textColor="@color/white"
                         android:textStyle="bold"
                         android:textSize="18sp"
-                        android:backgroundTint="@color/btn_start"
+                        android:backgroundTint="@color/error_red"
                         android:elevation="4dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
